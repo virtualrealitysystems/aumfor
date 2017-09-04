@@ -1,0 +1,51 @@
+ {% extends 'base.html' %} {% load static %} 
+
+{% block title %}
+<title>
+    Team | AUMFOR
+</title>
+{% endblock%}
+
+ {% block content %}
+ <script type="text/javascript">
+     $("#team").addClass("active");
+     $("#ddmenu1").removeClass("active");
+
+ </script>
+<div class="postion:relative;margin:">
+    <div class="col-md-4">
+        <div class="card card-profile">
+            <div class="card-avatar">
+                <a href="#pablo">
+                    <img class="img" src="../assets/img/faces/marc.jpg">
+                </a>
+            </div>
+            <div class="content">
+                <h6 class="category text-gray">Project Manager</h6>
+                <h4 class="card-title">Alpesh Rathod</h4>
+                <p class="card-content">
+                    Developer msg
+                </p>
+                <a href="#pablo" class="btn btn-primary btn-round">Follow</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card card-profile">
+            <div class="card-avatar">
+                <a href="#pablo">
+                    <img class="img" src="../assets/img/faces/marc.jpg">
+                </a>
+            </div>
+            <div class="content">
+                <h6 class="category text-gray">Developer</h6>
+                <h4 class="card-title">Meet Thkar</h4>
+                <p class="card-content">
+                    Developer msg
+                </p>
+                <a href="#pablo" class="btn btn-primary btn-round">Follow</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock%}

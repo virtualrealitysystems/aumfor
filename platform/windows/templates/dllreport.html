@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Scan Process Report</title>
+        <style rel="stylesheet" type="text/css">
+        @page template {
+        size: legal landscape;
+        left: 5cm;
+        right: 2cm;
+        margin: 0;
+        }
+        
+        td {
+        text-align: center;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        }
+        
+        th {
+        border-bottom: solid 1px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        }
+        </style>
+    </head>
+    <body>
+        <table width="100%" cellspacing="0" style="margin: 0; border:1px solid black; font-size: 15px;">
+            {% for data in dlldata %} {% if forloop.counter0 == 0 or forloop.counter|divisibleby:11 %}
+                <tr width="100%"">
+                    <td colspan="5">
+                        
+                        <p style="text-align: center;"> <span style="font-weight: 900;font-size: 32px;"> AUMFOR </span> <br> <br>
+                        <span style="font-size: 28px;"> DLL Report</span>  </p>
+                        
+                        <!-- <p style="text-align: center; font-size: 30px;margin-top: -50px !important;">DLL Report
+                        </p> -->
+                        
+                        
+                        <table width="100%" style="font-size: 20px; border: 1px solid black; padding: 5px;">
+                            <tr>
+                                <td style="text-align: left">
+                                    <span style="font-weight: 900"> Dump : </span>{{ dump }}
+                                </td>
+                                <td style="text-align: right">
+                                    <span style="font-weight: 900"> Date : </span> {{ date }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left"> <span style="font-weight: 900"> Process : </span>  {{ process }}</td>
+                                <td style="text-align: right;"> <span style="font-weight: 900"> Total DLL : </span> {{ count }} </td>
+                            </tr>
+                            
+                        </table>
+                    </td>
+                </tr>
+            <tr style="line-height: 1.5em; border-color: white;"></tr>
+            <tr style="line-height: 1.5em;">
+                <th>#</th>
+                <th>Base</th>
+                <th>Size</th>
+                <th>Load Count</th>
+                <th>Path</th>
+            </tr>
+        {% else %} {% endif %}
+        <tr>
+            <td style="padding-left: 5px; padding-right: 5px; ">{{ forloop.counter }}</td>
+            <td>{{ data.base }}</td>
+            <td>{{ data.size }}</td>
+            <td>{{ data.load_count }}</td>
+            <td style="width: 30%;">{{ data.path }}</td>
+        </tr>
+    {% endfor %}
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Report</title>
+        <style rel="stylesheet" type="text/css">
+        @page template {
+        size: legal landscape;
+        left: 5cm;
+        right: 2cm;
+        margin: 0;
+        }
+        
+        td {
+        text-align: center;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        }
+        
+        th {
+        border-bottom: solid 1px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        }
+        </style>
+    </head>
+    <body>
+        <table width="100%" cellspacing="0" style="margin: 0; border: 1px solid black; font-size: 15px;  ">
+            {% for process in processes %} {% if forloop.counter0 == 0 or forloop.counter|divisibleby:12 %}
+                <tr>
+                    <td colspan="13">
+                        
+                        <p style="text-align: center;">
+                            <span style="font-weight: 900;font-size: 32px;"> AUMFOR </span>
+                            <br><br>
+                            <span style="font-size: 28px;"> Analyze Process Report
+                            </p>
+                            
+                            <table width="100%" style="font-size: 20px; margin-bottom: 10px; border: 1px solid black;padding: 5px;">
+                                <tr>
+                                    <td style="text-align: left">
+                                        <span style="font-weight: 900"> Report for :</span> {{ dump }}
+                                    </td>
+                                    <td style="text-align: right">
+                                        <span style="font-weight: 900"> Date:  
+                                        </span> {{ date }}
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                <tr style="line-height: 1.5em; border-color: white;"></tr>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>PID</th>
+                    <th>PPID</th>
+                    <th>Thread Count</th>
+                    <th>Handle Count</th>
+                    <th>Session</th>
+                    <th>WOW64</th>
+                    <th>Creation Time</th>
+                    <th>Termination Time</th>
+                    <th>Virtual Offset</th>
+                    <th>Physical Offset</th>
+                    <th>PDB</th>
+                </tr>
+            {% endif %}
+            <tr>
+                <td style="padding-left: 5px; padding-right: 5px">{{ forloop.counter }}</td>
+                <td style="width:16%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ process.name }}</td>
+                <td>{{ process.pid }}</td>
+                <td>{{ process.ppid }}</td>
+                <td>{{ process.thread_count }}</td>
+                <td>{{ process.handle_count }}</td>
+                <td>{{ process.session }}</td>
+                <td>{{ process.wow64 }}</td>
+                
+                {% if process.creation_time == None %}
+                    <td> - </td>
+                {% else %}
+                    <td style="width: 18%">{{ process.creation_time }}</td>
+                {% endif %}
+                {% if process.termination_time == None %}
+                    <td> - </td>
+                {% else %}
+                    <td style="width: 18%">{{ process.termination_time }}</td>
+                {% endif %}
+                
+                <td>{{ process.offset_v }}</td>
+                <td>{{ process.offset_p }}</td>
+                <td>{{ process.pdb }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

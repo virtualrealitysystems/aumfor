@@ -1,0 +1,112 @@
+<!doctype html> 
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png" />
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> {% block title %}
+    <title>
+        AUMFOR | Automated
+ Memory Forensics
+    </title>
+    {% endblock %}
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" /> {% block css%} {% endblock %}
+    
+    <!-- Bootstrap core CSS     -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
+    <!--  Material Dashboard CSS    -->
+    <link href="{% static 'css/material-dashboard.css' %}" rel="stylesheet" />
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="{% static 'css/demo.css'  %}" rel="stylesheet" />
+    <link href="{% static 'css/select2.css'  %}" rel="stylesheet" />
+    <!-- CSS For Data table -->
+    <link href="{% static 'css/dataTables.checkboxes.css'  %}" rel="stylesheet" />
+    <link href="{% static 'css/jquery.dataTables.min.css' %}" rel="stylesheet">
+    <!-- CDN  For Font Icon -->
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/MaterialIcons.css' %}" rel='stylesheet' type='text/css'>
+
+    <link href="{% static 'css/model.css' %}" rel="stylesheet" />
+
+    <script src="{% static 'js/jquery-3.1.0.min.js' %}" type="text/javascript"></script>
+    
+    <!--   Core JS Files   -->
+    <script src="{% static 'js/bootstrap.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/material.min.js' %}" type="text/javascript"></script>
+   
+    <!--  Notifications Plugin    -->
+    <!-- <script src="{% static 'js/bootstrap-notify.js' %}"></script> -->
+
+    <!-- dropdown plugin -->
+    <script src="{% static 'js/select2.full.min.js' %}"></script>
+    <!--   Google Maps Plugin    
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script> -->
+    <!-- Material Dashboard javascript methods -->
+    <script src="{% static 'js/material-dashboard.js' %}"></script>
+    <!--<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>-->
+    <!-- JS For Form sumbmittion  -->
+    <script src="{% static 'js/jquery.form.js' %}"></script>
+    <!-- Js For DataTables -->
+    <!--  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
+    {% block javascript %} {% endblock %}
+    
+    <script src="{% static 'js/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'js/dataTables.checkboxes.min.js' %}"></script>
+
+
+</head>
+
+<body>
+{% block model %}{% endblock %}
+    <div class="wrapper">
+        {% include "leftnav.html" %}
+        {% include "header.html" %}
+        
+           <div class="content">
+                
+                <div class="container-fluid">
+                    <ul class="breadcrumb" id="bredcum">
+                     {% if request.user.is_authenticated %}
+                        <li><a href="/">Home</a></li>
+                     {% endif %}
+                    </ul>
+                    {% block content %} {% endblock%}
+                </div>
+            </div>
+           
+               {% include "footer.html"%}
+           
+            
+        </div>
+    </div>
+    <div id="modelBlock" class="modalBlock" role="dialog">
+        <!-- Modal content -->
+        <center>
+            <div class="modal-content">
+                <!-- <span class="close">&times;</span> -->
+                <p>We are Analyzing your System Dump</p>    
+                    <p>* Please Do not Close or Reload page *</p>
+                <p>Please wait untill Process gets complete</p>
+            </div>
+        </center>
+    </div>
+</body>
+<script type="text/javascript">
+$(document).ready(function() {
+
+    // Javascript method's body can be found in assets/js/demos.js
+
+
+    $("#ddmenu2").addClass("dropdown active");
+
+    // $("#ddmenu1").removeClass("active");
+
+    // $("#ddmenu2").children("ul").children("li").children("a").removeClass("demo");
+
+
+});
+</script>
+
+</html>

@@ -1,0 +1,103 @@
+{% extends 'base.html' %} {% load static %} {% block css %}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css"> 
+<style type="text/css">
+ .indexModal {
+        display: none;
+        /* Hidden by default */
+        position: absolute !important;
+        /* Stay in place */
+        z-index: 5;
+        /* Sit on top */
+        /* Location of the box */
+        left: 0;
+        top: 0;
+        height: 100% !important;
+        width: 100% !important;
+        /* Full width */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Black w/ opacity */
+    }
+</style>
+{% endblock %} {% block title %}
+<title>
+    Dump | AUMFOR
+</title>
+{% endblock%} {% block javascript %}
+<script type="text/javascript" src="{% static 'js/uploades.js'  %}"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+ var user_id = {{ request.user.pk }};
+
+    get_data_datatable(user_id);
+});
+
+{% if request.user.is_authenticated %}
+{% else %}
+alert("Please Login")
+window.location.href = "/login/";
+{% endif %}
+
+</script>
+{% endblock%}
+
+{% block model %}
+<div id="modelScan" class="indexModal" role="dialog">
+        <!-- Modal content -->
+        <center>
+            <div class="modal-content">
+         <!-- <span class="close">&times;</span> -->
+                <p>Please wait while generating report 123</p>
+            </div>
+        </center>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header" data-background-color="purple">
+        <h4>Uploded Dumps</h4>
+        <p>
+            Total Dumps : <span id="rowsCount"> </span>
+        </p>
+    </div>
+    {% if request.session.uid %}
+    <form id="frm-upload" action="" method="POST">
+        {% csrf_token %}
+        <div class="col-md-12">
+            <div style="position: relative;float: right!important;">
+                <button type="submit"><img src="{% static 'img/printer.png' %}" alt="print report" style="width:25px !important; height: 25px !important;"></button>
+            </div>
+            <table id="Dt_upload" class="display" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <td></td>
+                        <th>Id</th>
+                        <th>Dump Name</th>
+                        <th>Status</th>
+                        <th>Uploaded on</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <td></td>
+                        <th>Id</th>
+                        <th>Dump Name</th>
+                        <th>Status</th>
+                        <th>Uploaded on</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </form>
+    {% endif %}
+</div>
+<form id="form" name="" action="/imageinfo/" method="POST" style="display:none">
+    {% csrf_token %}
+    <input type="hidden" name="uploadid" id="uploadid" value="">
+    <input type="hidden" name="uploadname" id="uploadname" value="">
+</form>
+{% endblock %}

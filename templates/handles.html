@@ -1,0 +1,80 @@
+{% extends 'base.html' %} {% load static %} {% block title %}
+<title>
+    Handles | AUMFOR
+</title>
+{% endblock%} {% block css %}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css"> {% endblock%}{% block javascript %}
+<script type="text/javascript" src="{% static 'js/handles.js'  %}"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+        var handle_pid = {{ pid }};
+        var handle_dump = {{ dumpid }} ; 
+        get_data_Dt(handle_pid,handle_dump);
+    
+});
+</script>
+{% endblock %} {% block content %}
+
+</head>
+
+<body>
+    <div class="row" style="padding: 5px;margin: 5px;">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header" data-background-color="purple">
+                    <h4>Handles</h4>
+                    <p>
+                        Total Handles : <span id="rowsCount"> </span>
+                    </p>
+                    <p>
+                        Process :
+                        <a id="process" href="#" onclick="goto_Process_Detail()" style="text-decoration: underline;"> </a>
+                    </p>
+                </div>
+                {% if request.session.uid %}
+                <div class="card-content table-responsive">
+                    <div style="margin-top: 20px;">
+                        <form id="frm-print" action="" method="POST">
+                            {% csrf_token %}
+                            <div style="position: relative;float: right!important;">
+                                <button type="submit"><img src="{% static 'img/printer.png' %}" alt="print report" style="width:25px !important; height: 25px !important;"></button>
+                            </div>
+                            <table id="Dt_handle" class="display" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>ID</th>
+                                        <th>Virtual Offset</th>
+                                        <th>Handle</th>
+                                        <th>Access</th>
+                                        <th>Type</th>
+                                        <th>Details</th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th></th>
+                                        <th>ID</th>
+                                        <th>Virtual Offset</th>
+                                        <th>Handle</th>
+                                        <th>Access</th>
+                                        <th>Type</th>
+                                        <th>Details</th>
+                                        
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        <form action="/processdetail/" method="POST" id=form style="display: none;"> {% csrf_token %}
+            <input type="hidden" name="setPid" id="setPid" value="">
+            <input type="hidden" name="setDumpid" id="setDumpid" value="">
+            <input type="hidden" name="dumpName" id="dumpName" value="">
+        </form>
+    </div>
+    {% endblock%}

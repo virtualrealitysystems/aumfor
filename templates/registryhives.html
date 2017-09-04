@@ -1,0 +1,115 @@
+{% extends 'base.html' %} {% load static %}{% block css %}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+<style type="text/css">
+div.container {
+    width: 80%;
+}
+.indexModal {
+        display: none;
+        /* Hidden by default */
+        position: absolute !important;
+        /* Stay in place */
+        z-index: 5;
+        /* Sit on top */
+        /* Location of the box */
+        left: 0;
+        top: 0;
+        height: 100% !important;
+        width: 100% !important;
+        /* Full width */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Black w/ opacity */
+    }
+</style>
+{% endblock %} {% block title %}
+<title>
+    Registery Hives | AUMFOR
+</title>
+{% endblock%}
+
+{% block javascript %}
+    <script type="text/javascript" src="{% static 'js/registryhives.js'  %}"></script>
+    <script type="text/javascript">
+    {% if request.user.is_authenticated %}
+    {% else %}
+        alert("Please Login")
+        window.location.href = "/login/";
+    {% endif %}</script>
+{% endblock %}
+
+{% block model %}
+<div id="modelScan" class="indexModal" role="dialog">
+        <!-- Modal content -->
+        <center>
+            <div class="modal-content">
+         <!-- <span class="close">&times;</span> -->
+                <p>Please wait while generating report.</p>
+            </div>
+        </center>
+</div>
+{% endblock %}
+
+{% block content %}
+<script type="text/javascript">
+$(document).ready(function() {
+var user_id = {{ request.session.uid }};  
+get_data_Datatable(user_id); 
+
+});
+</script>
+<div >
+    <div>
+        <div class="">
+            <div class="card">
+                <div class="card-header" data-background-color="purple">
+                    <h4>Reigstery Hives</h4>
+                    <p>
+                        Dump : <span id="dumpProfile"></span>
+                        <br> Total Registery Hives : <span id="rowsCount"> </span>
+                    </p>
+                </div>
+                <div class="card-content table-responsive">
+                    <div>
+                        <select class="form-control select2" id="ddlcas" onchange="showData(this.value)">
+                            <option selected="">Please select a Dump</option>
+                        </select>
+                    </div>
+                    <form id="frm-reg-print" action="" method="POST">
+                        <div class="col-md-12" style="padding-top: 20px;">
+                            <div style="position: relative;float: right!important;">
+                                <button type="submit"><img src="{% static 'img/printer.png' %}" alt="print report" style="width:25px !important; height: 25px !important;"></button>
+                            </div>
+                            <table id="Dt_reg" class="display" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th data-toggle="tooltip" title="Process ID">ID</th>
+                                        <th>Name</th>
+                                        <th data-toggle="tooltip" title="Virtual Address of Process">Virtual</th>
+                                        <th data-toggle="tooltip" title="Physical Address of Process">Physical</th>
+                                        <th data-toggle="tooltip" title="Dump No">Dump</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th></th>
+                                        <th data-toggle="tooltip" title="Process ID">ID</th>
+                                        <th>Name</th>
+                                        <th data-toggle="tooltip" title="Virtual Address of Process">Virtual</th>
+                                        <th data-toggle="tooltip" title="Physical Address of Process">Physical</th>
+                                        <th data-toggle="tooltip" title="Dump No">Dump</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

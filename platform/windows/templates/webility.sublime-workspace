@@ -1,0 +1,1032 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"a",
+				"auto"
+			],
+			[
+				"wro",
+				"word-wrap"
+			],
+			[
+				"du",
+				"dumpName"
+			],
+			[
+				"wr",
+				"word-wrap"
+			],
+			[
+				"margi",
+				"margin-left"
+			],
+			[
+				"ba",
+				"background-color"
+			],
+			[
+				"t",
+				"type"
+			],
+			[
+				"ma",
+				"mark\tTag"
+			],
+			[
+				"fo",
+				"font-size"
+			],
+			[
+				"background-c",
+				"background-color"
+			],
+			[
+				"b",
+				"background"
+			],
+			[
+				"l",
+				"location"
+			],
+			[
+				"Handl",
+				"Handles"
+			],
+			[
+				"re",
+				"request"
+			],
+			[
+				"set",
+				"setPk"
+			],
+			[
+				"Process",
+				"processes"
+			],
+			[
+				"Net",
+				"NetworkConnections"
+			],
+			[
+				"ta",
+				"table-responsive"
+			],
+			[
+				"ne",
+				"networkconnection"
+			],
+			[
+				"d",
+				"document"
+			],
+			[
+				"al",
+				"text-align"
+			],
+			[
+				"len",
+				"length"
+			],
+			[
+				"co",
+				"content"
+			],
+			[
+				"dum",
+				"dumpProfile"
+			],
+			[
+				"s",
+				"str"
+			],
+			[
+				"dd",
+				"ddlcas"
+			],
+			[
+				"e",
+				"e"
+			],
+			[
+				"in",
+				"innerText"
+			],
+			[
+				"ro",
+				"rowsCount"
+			],
+			[
+				"lo",
+				"log"
+			],
+			[
+				"upload",
+				"uploadid"
+			],
+			[
+				"NO",
+				"None"
+			],
+			[
+				"Da",
+				"data"
+			],
+			[
+				"use",
+				"userPass"
+			],
+			[
+				"rea",
+				"ready"
+			],
+			[
+				"onkey",
+				"onkeyup\tAttr"
+			],
+			[
+				"pro",
+				"process"
+			],
+			[
+				"L",
+				"LinuxProfileDT"
+			],
+			[
+				"dump",
+				"dump"
+			],
+			[
+				"Li",
+				"LinuxDT"
+			],
+			[
+				"dat",
+				"data"
+			],
+			[
+				"setP",
+				"setPid"
+			],
+			[
+				"setMa",
+				"setMacDumpid"
+			],
+			[
+				"setM",
+				"setMacPid"
+			],
+			[
+				"se",
+				"setDumpid"
+			],
+			[
+				"ac",
+				"action"
+			],
+			[
+				"pr",
+				"Profile"
+			],
+			[
+				"get",
+				"getElementById"
+			],
+			[
+				"con",
+				"console"
+			],
+			[
+				"Mac",
+				"MacProfileDT"
+			],
+			[
+				"Wi",
+				"WindowsProfileDT"
+			],
+			[
+				"ge",
+				"getElementById"
+			],
+			[
+				"win",
+				"windows"
+			],
+			[
+				"colu",
+				"column"
+			],
+			[
+				"col",
+				"columns"
+			],
+			[
+				"bo",
+				"bot1"
+			],
+			[
+				"bot",
+				"bots"
+			],
+			[
+				"ons",
+				"onsubmit\tAttr"
+			],
+			[
+				"app",
+				"append"
+			],
+			[
+				"data",
+				"data_obj"
+			],
+			[
+				"te",
+				"textarea\tTag"
+			],
+			[
+				"cha",
+				"chatbot"
+			],
+			[
+				"train",
+				"train_ids"
+			],
+			[
+				"test",
+				"test_enc"
+			],
+			[
+				"tes",
+				"test_ids"
+			],
+			[
+				"pa",
+				"platform"
+			],
+			[
+				"P",
+				"POST"
+			],
+			[
+				"da",
+				"data"
+			],
+			[
+				"st",
+				"style"
+			],
+			[
+				"Win",
+				"WindoConnection"
+			],
+			[
+				"Ma",
+				"MacConnection"
+			],
+			[
+				"Pl",
+				"Platform"
+			],
+			[
+				"Lo",
+				"LocalPort"
+			],
+			[
+				"Local",
+				"LocalIP"
+			],
+			[
+				"Pro",
+				"Profile"
+			],
+			[
+				"wi",
+				"WindoConnection"
+			],
+			[
+				"No",
+				"none"
+			],
+			[
+				"Proto",
+				"Protocol"
+			],
+			[
+				"na",
+				"navbar-right"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"IN",
+				"inline"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"YOu",
+				"your"
+			],
+			[
+				"marg",
+				"margin-left"
+			],
+			[
+				"mar",
+				"margin-right"
+			],
+			[
+				"pad",
+				"padding"
+			],
+			[
+				"sta",
+				"statusAnalyzeRegisteryHives"
+			],
+			[
+				"doc",
+				"document"
+			],
+			[
+				"jq",
+				"jqXHR"
+			],
+			[
+				"che",
+				"checkConnection"
+			],
+			[
+				"does",
+				"doesConnectionExist"
+			],
+			[
+				"do",
+				"document"
+			],
+			[
+				"cl",
+				"clear"
+			],
+			[
+				"po",
+				"position"
+			],
+			[
+				"send",
+				"send_text_message"
+			],
+			[
+				"_",
+				"_get_sentiment_score"
+			],
+			[
+				"api",
+				"api_profile"
+			],
+			[
+				"su",
+				"submit"
+			],
+			[
+				"formM",
+				"formMacThread"
+			],
+			[
+				"va",
+				"value"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"W",
+				"WindowsProfileDT"
+			],
+			[
+				"nu",
+				"null"
+			],
+			[
+				"F",
+				"function"
+			],
+			[
+				"mac",
+				"Mac"
+			],
+			[
+				"cos",
+				"console"
+			],
+			[
+				"w",
+				"windows"
+			],
+			[
+				"pla",
+				"platform"
+			],
+			[
+				"sel",
+				"selectedProfile"
+			],
+			[
+				"im",
+				"important"
+			],
+			[
+				"if",
+				"ifmain\tif __name__ == '__main__'"
+			],
+			[
+				"sho",
+				"showless"
+			],
+			[
+				"sh",
+				"showMore"
+			],
+			[
+				"scr",
+				"scrollX"
+			],
+			[
+				"wo",
+				"word-wrap"
+			],
+			[
+				"width",
+				"column-width"
+			],
+			[
+				"pre",
+				"preventDefault"
+			],
+			[
+				"err",
+				"error"
+			],
+			[
+				"add",
+				"addClass"
+			],
+			[
+				"c",
+				"cssclass"
+			],
+			[
+				"css",
+				"cssclass"
+			],
+			[
+				"cas",
+				"cssclass"
+			],
+			[
+				"ddme",
+				"ddmenu2"
+			],
+			[
+				"drop",
+				"dropdown"
+			],
+			[
+				"clas",
+				"classname"
+			],
+			[
+				"on",
+				"onclick\tAttr"
+			],
+			[
+				"nav",
+				"navbar-nav"
+			],
+			[
+				"dr",
+				"dropdown"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				],
+				[
+					"Packages/SublimeREPL/sublimerepl_build_system_hack.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: all",
+				"Package Control: Advanced Install Package"
+			],
+			[
+				"Package Control: en",
+				"Package Control: Enable Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/ram/Ankit/django3/webtool"
+	],
+	"file_history":
+	[
+		"/home/ram/Desktop/webility /code/templates/base.html",
+		"/home/ram/Desktop/webility /code/api/windows/templates/report.html",
+		"/home/ram/Desktop/webility /code/api/windows/templates/scanprocess.html",
+		"/home/ram/Desktop/webility /code/api/windows/templates/netreport.html",
+		"/run/user/1000/gvfs/smb-share:server=vrs-main-server,share=virus/Developers/Ankit/Report/26MayReport",
+		"/home/ram/Desktop/webility /code/templates/networkconnection.html",
+		"/home/ram/Desktop/webility /code/templates/processdetail.html",
+		"/home/ram/Desktop/webility /code/api/windows/templates/uploadreport.html",
+		"/home/ram/Desktop/webility /code/website/settings.py",
+		"/home/ram/Desktop/webility /code/templates/uploades.html",
+		"/home/ram/Desktop/webility /code/api/windows/processes/process.py",
+		"/home/ram/Desktop/webility /code/main/views.py",
+		"/home/ram/Desktop/webility /code/templates/registryhives.html",
+		"/home/ram/Desktop/webility /code/api/windows/templates/regreport.html",
+		"/home/ram/Desktop/webility /code/templates/scandetails.html",
+		"/home/ram/Desktop/webility /code/templates/scanReport.html",
+		"/home/ram/Desktop/webility /code/main/templates/index.html",
+		"/home/ram/Desktop/webility /code/api/templates/api/index.html",
+		"/home/ram/Desktop/webility /code/templates/imgInfo.html",
+		"/home/ram/Desktop/webility /code/main/templates/register.html",
+		"/home/ram/Desktop/webility /code/main/templates/login.html",
+		"/home/ram/Desktop/webility /code/templates/handles.html",
+		"/home/ram/Desktop/webility /code/templates/dll.html",
+		"/home/ram/Desktop/webility /code/templates/thread.html",
+		"/home/ram/Desktop/webility /code/main/urls.py",
+		"/home/ram/Desktop/webility /code/templates/singleprocess.html",
+		"/home/ram/Desktop/webility /code/manage.py",
+		"/home/ram/Desktop/webility /code/api/windows/views.py",
+		"/home/ram/Desktop/webility /code/templates/team.html",
+		"/home/ram/Desktop/webility /code/templates/help.html",
+		"/home/ram/Desktop/webility /code/api/windows/urls.py",
+		"/home/ram/Desktop/webility /code/api/windows/models.py",
+		"/home/ram/Desktop/webility /code/api/models.py",
+		"/home/ram/Desktop/Webility/code/templates/scanReport.html",
+		"/home/ram/Desktop/Webility/code/templates/registryhives.html",
+		"/home/ram/Desktop/Webility/code/templates/networkconnection.html",
+		"/home/ram/Desktop/webility /code/templates/file_upload.html",
+		"/home/ram/Ankit/django3/webtool/main/templates/index.html",
+		"/home/ram/Ankit/django3/webtool/main/views.py",
+		"/home/ram/Ankit/django3/webtool/main/templates/register.html",
+		"/home/ram/Ankit/django3/webtool/templates/base.html",
+		"/home/ram/Ankit/django3/webtool/volatility/volatility/conf.py",
+		"/tmp/mozilla_ram0/VolatilityCheatSheet.pdf",
+		"/home/ram/Ankit/django3/webtool/templates/networkconnection.html",
+		"/home/ram/Ankit/django3/webtool/templates/linux_thread.html",
+		"/home/ram/Ankit/django3/webtool/templates/linux_processdetail.html",
+		"/home/ram/Desktop/['Offset|Name|Pid|Uid|Gid|DTB|StartTime',",
+		"/home/ram/Ankit/django3/webtool/volatility/dump/linux-sample-1.bin",
+		"/home/ram/Ankit/django3/webtool/main/urls.py",
+		"/home/ram/Ankit/django3/webtool/templates/mac_thread.html",
+		"/home/ram/Ankit/django3/webtool/templates/mac_processdetail.html",
+		"/home/ram/Ankit/django3/webtool/volatility/volatility/plugins/profilescan.py",
+		"/home/ram/Ankit/django3/webtool/volatility/volatility/plugins/mac/get_profile.py",
+		"/home/ram/Ankit/django3/webtool/volatility/volatility/plugins/linux/get_profile.py",
+		"/home/ram/Ankit/django3/webtool/volatility/volatility/plugins/linux/profilescan.py",
+		"/home/ram/Desktop/Linux Profile list",
+		"/home/ram/Ankit/django3/webtool/templates/scanReport.html",
+		"/home/ram/Ankit/django3/webtool/templates/registryhives.html",
+		"/home/ram/Ankit/webility /code/templates/uploades.html",
+		"/home/ram/Ankit/webility /code/templates/scanReport.html",
+		"/home/ram/Ankit/webility /code/templates/registryhives.html",
+		"/home/ram/Ankit/webility /code/templates/networkconnection.html",
+		"/home/ram/Desktop/Volatility Pending Task",
+		"/home/ram/Ankit/webility /code/main/templates/index.html",
+		"/home/ram/Ankit/webility /code/templates/base.html",
+		"/home/ram/Desktop/Finch/chatterboot-api/site/static/js/bot2.js",
+		"/home/ram/Desktop/Finch/chatterboot-api/site/templates/bot2.html",
+		"/home/ram/Desktop/Finch/chatterboot-api/site/templates/bot1.html",
+		"/home/ram/Desktop/Finch/chatterboot-api/site/app.py",
+		"/home/ram/Desktop/Finch/chatterboot-api/site/bots/bot2/std-startup.xml",
+		"/home/ram/Desktop/Finch/chatterboot-api/site/bots/bot2/bot.py",
+		"/home/ram/Desktop/Finch/chatterboot-api/exercise/bot.py",
+		"/home/ram/Desktop/Finch/chatterboot-api/site/static/js/bot1.js",
+		"/home/ram/Desktop/Finch/dataset/aiml/aiml-en-us-foundation-alice.v1-6/default.aiml",
+		"/home/ram/Desktop/Finch/chatterboot-api/exercise/std-startup.xml",
+		"/home/ram/Desktop/Finch/chatterboot-api/exercise/standard/std-profile.aiml",
+		"/home/ram/Desktop/Finch/chatterboot-api/exercise/bot_brain.brn",
+		"/home/ram/Desktop/Finch/chatterboot-api/exercise/dataset/primitive-math.aiml",
+		"/home/ram/Desktop/Finch/chatterboot-api/site/requirements",
+		"/home/ram/Desktop/Finch/chatterboot-api/site/templates/index.html",
+		"/home/ram/Desktop/Finch/chatterboot-api/site/demo.py",
+		"/home/ram/Desktop/Finch/chatterboot-api/site/bots/bot1/bot.py",
+		"/home/ram/Desktop/Finch/dataset/aiml/aiml-en-us-foundation-alice.v1-6/personality.aiml",
+		"/home/ram/Desktop/Finch/dataset/aiml/aiml-en-us-foundation-alice.v1-6/alice.aiml",
+		"/home/ram/Desktop/Finch/dataset/aiml/aiml-en-us-foundation-alice.v1-6/ai.aiml",
+		"/home/ram/Desktop/Finch/chatterboot-api/env/lib/python2.7/site-packages/chatterbot/corpus/data/english/math_words.json",
+		"/home/ram/Desktop/Finch/chatterboot-api/env/lib/python2.7/site-packages/chatterbot/corpus/data/english/money.corpus.json",
+		"/home/ram/Desktop/Finch/chatterboot-api/env/lib/python2.7/site-packages/chatterbot/corpus/data/english/movies.corpus.json",
+		"/home/ram/Desktop/Finch/chatterboot-api/env/lib/python2.7/site-packages/chatterbot/corpus/data/english/politics.corpus.json",
+		"/home/ram/Desktop/Finch/chatterboot-api/env/lib/python2.7/site-packages/chatterbot/corpus/data/english/psychology.corpus.json",
+		"/home/ram/Desktop/Finch/chatterboot-api/env/lib/python2.7/site-packages/chatterbot/corpus/data/english/ai.corpus.json",
+		"/home/ram/Desktop/Finch/chatterboot-api/env/lib/python2.7/site-packages/chatterbot/corpus/data/english/botprofile.corpus.json",
+		"/home/ram/Desktop/Finch/chatterboot-api/env/lib/python2.7/site-packages/chatterbot/corpus/data/english/computers.corpus.json",
+		"/home/ram/Desktop/Finch/chatterboot-api/env/lib/python2.7/site-packages/chatterbot/corpus/data/english/conversations.corpus.json",
+		"/home/ram/Desktop/Finch/chatterboot-api/env/lib/python2.7/site-packages/chatterbot/corpus/data/english/drugs.corpus.json",
+		"/home/ram/Desktop/Finch/chatterboot-api/env/lib/python2.7/site-packages/chatterbot/corpus/data/english/emotion.corpus.json",
+		"/home/ram/Desktop/Finch/chatterboot-api/env/lib/python2.7/site-packages/chatterbot/corpus/data/english/food.corpus.json",
+		"/home/ram/Desktop/Finch/chatterboot-api/env/lib/python2.7/site-packages/chatterbot/corpus/data/english/gossip.corpus.json",
+		"/home/ram/Desktop/Finch/chatterboot-api/env/lib/python2.7/site-packages/chatterbot/corpus/data/english/greetings.corpus.json",
+		"/home/ram/Desktop/Finch/chatterboot-api/env/lib/python2.7/site-packages/chatterbot/corpus/data/english/history.corpus.json",
+		"/home/ram/Desktop/Finch/chatterboot-api/env/lib/python2.7/site-packages/chatterbot/corpus/data/english/humor.corpus.json",
+		"/home/ram/Desktop/Finch/chatterboot-api/env/lib/python2.7/site-packages/chatterbot/corpus/data/english/literature.corpus.json",
+		"/home/ram/Desktop/Finch/chatterboot-api/env/lib/python2.7/site-packages/chatterbot/corpus/data/english/science.corpus.json",
+		"/home/ram/Desktop/Finch/chatterboot-api/env/lib/python2.7/site-packages/chatterbot/corpus/data/english/sports.corpus.json",
+		"/home/ram/Desktop/Finch/chatterboot-api/env/lib/python2.7/site-packages/chatterbot/corpus/data/english/swear_words.csv",
+		"/home/ram/Desktop/Finch/chatterboot-api/env/lib/python2.7/site-packages/chatterbot/corpus/data/english/trivia.corpus.json",
+		"/home/ram/Desktop/Finch/chatterboot-api/site/bots/bot1/database.db",
+		"/home/ram/Desktop/Finch/chatterboot-api/site/bots/bot1/train.py",
+		"/home/ram/Desktop/Finch/chatterboot-api/exercise/database.db",
+		"/home/ram/Desktop/Finch/dataset/squda/dev-v1.1.json",
+		"/home/ram/Desktop/Finch/dataset/squda/train-v1.1.json",
+		"/home/ram/Desktop/Finch/easy_seq2seq-master/seq2seq.ini",
+		"/home/ram/Desktop/Finch/tensorflow_chatbot/data/test.enc",
+		"/home/ram/Desktop/Finch/easy_seq2seq-master/working_dir/seq2seq.ckpt-21000.meta",
+		"/home/ram/Desktop/Finch/tensorflow_chatbot/data/train.dec",
+		"/home/ram/Desktop/Finch/easy_seq2seq-master/data_utils.py",
+		"/home/ram/Desktop/Finch/easy_seq2seq-master/seq2seq_serve.ini",
+		"/home/ram/Desktop/Finch/tensorflow_chatbot/seq2seq_model.py",
+		"/home/ram/Desktop/Finch/easy_seq2seq-master/data/cleaned-file",
+		"/home/ram/Desktop/Finch/easy_seq2seq-master/data/prepare_data.py",
+		"/home/ram/Desktop/Finch/easy_seq2seq-master/data/data_utils.py",
+		"/home/ram/Desktop/Finch/easy_seq2seq-master/data/working_dir",
+		"/home/ram/Desktop/Finch/easy_seq2seq-master/data/create_corpus.py",
+		"/home/ram/Desktop/Finch/easy_seq2seq-master/working_dir/vocab20000.dec",
+		"/home/ram/Desktop/Finch/easy_seq2seq-master/data/test.dec",
+		"/home/ram/Desktop/Finch/easy_seq2seq-master/data/chat.txt",
+		"/home/ram/Desktop/Finch/tensorflow_chatbot/execute.py",
+		"/home/ram/Desktop/Finch/tensorflow_chatbot/data/prepare_data.py"
+	],
+	"find":
+	{
+		"height": 30.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"",
+			"/home/ram/Ankit/django3",
+			"/home/ram/Ankit/D3",
+			"/home/ram/Ankit/django3"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"counter",
+			"formprocessdetail",
+			"form",
+			"setDemo",
+			"a.html",
+			"setDumpid",
+			"location",
+			"frmScan",
+			"setDemo",
+			"uploadname",
+			"select2",
+			"cons",
+			"POST",
+			"http://127.0.0.1:8000",
+			"pwd",
+			"dumpProfile",
+			"MacProfileDT",
+			"NewDumpid",
+			"formMacProcess",
+			"setMacId",
+			"LinuxDT",
+			"LinuxProfileDT",
+			"formLinuxProcess",
+			"frmLinuxScan",
+			"formlinuxProcess",
+			"setMacId",
+			"dataInfo",
+			":",
+			",",
+			"1000",
+			"\n    ",
+			"startScan",
+			"MacData",
+			"MacProfileDT",
+			"ddpr",
+			"WindowsProfileDT",
+			"MacProfileDT",
+			"ddProfile()",
+			"');\n",
+			"MacDT",
+			"app",
+			"Alic",
+			"Ali",
+			"cc3300",
+			"append",
+			"seq",
+			"tf.contrib.rnn",
+			"💖",
+			"🤔",
+			"😱",
+			"🤗",
+			"🔥",
+			"🇵",
+			"🇷",
+			"🏾",
+			"💪",
+			"😄",
+			"🍾",
+			"👏",
+			"✅",
+			"👊",
+			"🏼",
+			"💃",
+			"😫",
+			"🙃",
+			"watching",
+			"⭐️",
+			"👀",
+			"🍁",
+			"💨",
+			"💳",
+			"💰",
+			"😀",
+			"🍻",
+			"🌏",
+			"🔬",
+			"🙈",
+			"🎉",
+			"😢",
+			"😲",
+			"🤘",
+			"👑",
+			"🏆",
+			"🏈",
+			"💍",
+			"😜",
+			"😘",
+			"😳",
+			"😬",
+			"😅",
+			"🙄",
+			"👎",
+			"👿",
+			"💀",
+			"💥",
+			"🙌",
+			"🏻",
+			"😆",
+			"😩",
+			"👍",
+			"💭",
+			"🙏",
+			"🏽",
+			"😒",
+			"😭",
+			"😍",
+			"❤️",
+			"😂",
+			"😉",
+			"💯",
+			"🔫",
+			"😊",
+			")",
+			"data_utils",
+			"mac",
+			"WindoConnection",
+			"selectPlatform",
+			"uid",
+			"MacDT",
+			"macReport",
+			"            ",
+			"windoRe",
+			"frm-example",
+			";\">",
+			"<br>",
+			"else",
+			"statusExtract",
+			"statusAnalyzeDump"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"/",
+			":,",
+			":",
+			"application",
+			"push",
+			"tf.nn.rnn_cell",
+			"",
+			" <p style=\"text-indent: 2.0em;\">",
+			":",
+			".",
+			" ",
+			":",
+			"],[",
+			" ",
+			"],",
+			"],[",
+			"Analyzing",
+			"",
+			"table",
+			"status",
+			"analyze",
+			"},",
+			"\"}",
+			"}",
+			"<th>",
+			"</th>",
+			"\"demo\"",
+			"th>",
+			"<td>",
+			"</td>",
+			"",
+			" "
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 30.0
+	},
+	"input":
+	{
+		"height": 40.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 63.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 29.0
+	},
+	"pinned_build_system": "",
+	"project": "webility.sublime-project",
+	"replace":
+	{
+		"height": 56.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 683.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 299.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

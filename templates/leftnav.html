@@ -1,0 +1,98 @@
+{% load static %} 
+<div class="sidebar" data-color="purple" style="background-color: #fff">
+            <!--
+               Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
+               
+               Tip 2: you can also add an image using data-image tag
+            -->
+            <div class="logo">
+                <a href="/" class="simple-text">
+                    <img src="{% static 'img/Aumfor_logo.jpg'%}" style="width:100px">
+                </a>
+            </div>
+            <div class="sidebar-wrapper">
+                <ul class="nav">
+                    {% if request.user.is_authenticated %}
+                    <li class="active" id="ddmenu1">
+                        <a href="/">
+                            <i class="material-icons">dashboard</i>
+                            <p>Home</p>
+                        </a>
+                    </li>
+                    <li class="" id="upload">
+                        <a href="/dumps/" class="">
+                            <i class="material-icons">file_upload</i>
+                            <p>Uploded Dumps</p>
+                        </a>
+                    </li>
+                    <li class="" id="analyzedprocess">
+                        <a href="/process/" class="">
+                            <i class="material-icons">assessment</i>
+                            <p>Analyzed Processes</p>
+                        </a>
+                    </li>
+                    <li class="" id="network">
+                        <a href="/networkconnection/" class="">
+                            <i class="material-icons">network_wifi</i>
+                            <p>Network Connection</p>
+                        </a>
+                    </li>
+                    <li class="" id="registryhives">
+                        <a href="/registryhives/" class="">
+                            <i class="material-icons">dashboard</i>
+                            <p>Registery Hives</p>
+                        </a>
+                    </li>
+                    <li class="" id="scandata">
+                        <a href="/scandata/" class="">
+                            <i class="material-icons">scanner</i>
+                            <p>Scanned Processes</p>
+                        </a>
+                    </li>
+                    <li class="" id="contact">
+                        <a href="/contactus/">
+                            <i class="material-icons">contact_phone</i>
+                            <p>Contact Us</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/logout/">
+                            <i class="material-icons">exit_to_app</i>
+                            <p>Logout</p>
+                        </a>
+                    </li>
+                    {% else %}
+                    <li id="login" class="">
+                        <a href="/login/">
+                            <i class="material-icons">lock_open</i>
+                            <p>Login</p>
+                        </a>
+                    </li>
+                    <li class="" id="register">
+                        <a href="/register/">
+                            <i class="material-icons">unarchive</i>
+                            <p>Register</p>
+                        </a>
+                    </li>
+                    <li class="" id="help">
+                        <a href="/help/">
+                            <i class="material-icons">help</i>
+                            <p>Help</p>
+                        </a>
+                    </li>
+                   <!--  <li class="" id="team">
+                        <a href="http://www.virtualrealitysystems.net/sites/">
+                            <i class="material-icons">help</i>
+                            <p>About Team</p>
+                        </a>
+                    </li> -->
+                    <li id="contact" class="">
+                        <a href="/contactus/">
+                            <i class="material-icons">contact_phone</i>
+                            <p>Contact Us</p>
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>

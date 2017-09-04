@@ -1,0 +1,82 @@
+{% extends 'base.html' %} {% load static %} {% block title %}
+<title>
+    ImageInfo | AUMFOR
+</title>
+{% endblock %} 
+
+{% block javascript %}
+<script type="text/javascript" src="{% static 'js/imgInfo.js'  %}"></script>
+    <script type="text/javascript">
+
+$(document).ready(function() {
+    $("#upload").addClass("active");
+    $("#ddmenu1").removeClass("active");
+    $("#bredcum").append('<li><a href="/dumps/">Uploded Dumps</a></li>');
+    $("#bredcum").append('<li>Image Information</li>');
+
+    var upload_id = {{uploadid}} ;
+    get_data(upload_id);
+});
+</script>
+{% endblock %} 
+
+{% block content %}
+
+<div>
+    <div class="">
+        <div class="card">
+            <div class="card-header" data-background-color="purple">
+                <h4>Dumps Information</h4>
+                <p>
+                    Dump : <span id="dumpProfile"> {{uploadname}}</span>
+                </p>
+            </div>
+            <div class="card-content table-responsive">
+                <div class="col-md-12" style="padding-top: 20px;">
+                    <table class="table" style="width: 25% !important;position: relative;float: left" ;>
+                        <tr>
+                            <td>Dump Profile</td>
+                        </tr>
+                        <tr>
+                            <td style="height: 65px;">Dump Sggested Profiles</td>
+                        </tr>
+                        <tr>
+                            <td>As layer1</td>
+                        </tr>
+                        <tr>
+                            <td>PAE type</tdDTB>
+                        </tr>
+                        <tr>
+                            <td>DTB</td>
+                        </tr>
+                        <tr>
+                            <td>KDBG</td>
+                        </tr>
+                        <tr>
+                            <td>Number of Processors</td>
+                        </tr>
+                        <tr>
+                            <td>Service pack</td>
+                        </tr>
+                        <tr>
+                            <td>Kuser Shared Data</td>
+                        </tr>
+                        <tr>
+                            <td>Image Date/Time</td>
+                        </tr>
+                        <tr>
+                            <td>Image local Date/Time</td>
+                        </tr>
+                    </table>
+                    <table class="table" id="example" style="width: auto !important;position: relative;">
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+{% endblock %}

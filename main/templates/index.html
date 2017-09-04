@@ -1,0 +1,213 @@
+{% extends 'base.html' %} {% load static %} {% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/index.css'  %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/model.css'  %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/sweetalert.css' %}">
+<style type="text/css">
+    .indexModal {
+        display: none;
+        /* Hidden by default */
+        position: absolute !important;
+        /* Stay in place */
+        z-index: 5;
+        /* Sit on top */
+        /* Location of the box */
+        left: 0;
+        top: 0;
+        height: 100% !important;
+        width: 100% !important;
+        /* Full width */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Black w/ opacity */
+    }
+</style>
+{% endblock %} {% block javascript %}
+<script src="http://malsup.github.com/jquery.form.js"></script>
+<script type="text/javascript" src="{% static 'js/sweetalert.min.js'  %}"></script>
+<script type="text/javascript" src="{% static 'js/index.js'  %}"></script>
+<script type="text/javascript">
+function upload_dump() {
+    var request_uid = {{request.session.uid}};
+upload_image(request_uid);
+}
+
+$(document).ready(function () {
+{% if request.session.newdump %}
+    var dumpid = {{request.session.newdump}};
+    // var dumpid = 16;
+    onLoad(dumpid);
+{% endif %}
+});
+
+</script>
+{% endblock%} {% block model %}
+<div id="modelScan" class="indexModal" role="dialog">
+    <!-- Modal content -->
+    <center>
+        <div class="modal-content">
+            <!-- <span class="close">&times;</span> -->
+            <p>Please wait while generating report</p>
+        </div>
+    </center>
+</div>
+{% endblock %} {% block content %} {% if request.user.is_authenticated %}
+
+<div class="row">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header" data-background-color="purple">
+                    <p class="category">Dump Upload</p>
+                </div>
+                <div class="card-content table-responsive">
+                    <form action="" method="POST" id='fileUpload' name='fileUpload' enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group is-empty is-fileinput">
+                            <input type="file" id="fileDump" name="fileDump" multiple="" required="" accept="application/zip" onchange="ValidateSingleInput(this)">
+                            <div class="input-group">
+                                <input type="text" readonly="" class="form-control" placeholder="Upload Dump Zip" id='' name=''>
+                                <span class="input-group-btn input-group-sm">
+                                            <button type="button" class="btn btn-fab btn-fab-mini">
+                                            <i class="material-icons">insert_drive_file</i>
+                                            </button>
+                                        </span>
+                            </div>
+                        </div>
+                        <center>
+                            <button type="submit" class="btn btn-primary" id="submitBtn" onclick="upload_dump();"> Analyze Dump </button>
+                        </center>
+                    </form>
+                </div>
+                <div class='progress' id="progress_div">
+                    <div class='bar' id='bar'></div>
+                    <div class='percent' id='percent'>0%</div>
+                </div>
+                <div id="status" class="status" style="display: none;padding-left: 8px;margin-left: 10px;">
+                    <span class="blink_me" id="statusUpload"></span>
+                    <br />
+                    <span class="blink_me" id="statusExtract"></span>
+                    <br />
+                    <span class="blink_me" id="statusAnalyzeDump"></span>
+                    <br />
+                    <span class="blink_me" id="statusAnalyzeProcess"></span>
+                    <br />
+                    <span class="blink_me" id="statusAnalyzeThread"></span>
+                    <br />
+                    <span class="blink_me" id="statusAnalyzeDll"></span>
+                    <br />
+                    <span class="blink_me" id="statusAnalyzeHandle"></span>
+                    <br />
+                    <span class="blink_me" id="statusAnalyzeRegisteryHives"></span>
+                    <br />
+                    <span class="blink_me" id="statusAnalyzeNetwork"></span>
+                    <br />
+                    <span class="blink_me" id="statusError">
+                            </span>
+                    <div class="alert alert-danger" id="error" style="display: none;">
+                        <strong>Error !</strong>
+                    </div>
+                    <br />
+                </div>
+            </div>
+        </div>
+        <div style="display: none;">
+            <form id="formDumpId" action="/" method="POST" style="display: none">
+                {% csrf_token %}
+                <input type="hidden" name="NewDumpid" id="NewDumpid" value="">
+            </form>
+        </div>
+    </div>
+    <!--
+            image info code   -->
+
+    <div class="row" id="newData" style="display: none;">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header" data-background-color="purple">
+                    <p class="category">Uploded Dumps All Process</p>
+                </div>
+                <div class="card-content table-responsive">
+                    <div style="padding-top: 20px;">
+                        <form id="frm-example" action="" method="POST" onsubmit="false">
+                            <div style="float: right !important;">
+                                <button id="print"><img src="{% static 'img/printer.png' %}" alt="print report" style="width:25px !important; height: 25px !important;"></button>
+                            </div>
+                            {% csrf_token %}
+                            <table id="example" class="display" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th></th>
+                                        <th>ID</th>
+                                        <th data-toggle="tooltip" title="Processes ID">PID</th>
+                                        <th data-toggle="tooltip" title="Parent Process Id">PPID</th>
+                                        <th data-toggle="tooltip" title="Process Name">Name </th>
+                                        <th data-toggle="tooltip" title="No of Thread in Process">Thread Count</th>
+                                        <th data-toggle="tooltip" title="No of Thread in Process">Handle Count</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th></th>
+                                        <th></th>
+                                        <th>ID</th>
+                                        <th data-toggle="tooltip" title="Processes ID">PID</th>
+                                        <th data-toggle="tooltip" title="Parent Process Id">PPID</th>
+                                        <th data-toggle="tooltip" title="Process Name">Name </th>
+                                        <th>Thread Count</th>
+                                        <th>Handle Count</th>
+                                        <th></th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                            <hr>
+                        </form>
+                        <form id="formProcess" action="/processdetail/" method="POST" style="display: none">
+                            {% csrf_token %}
+                            <input type="hidden" name="setPid" id="setPid" value="">
+                            <input type="hidden" name="setDumpid" id="setDumpid" value="">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- form for scan data  -->
+<div style="display: none;">
+    <form action="/scan/" method="post" id="frmScan">
+        {% csrf_token %}
+        <input type="hidden" name="scanid" id="scanid" value="">
+        <input type="hidden" name="setdumpname" id="setdumpname" value="">
+    </form>
+</div>
+<!-- form for thred handle and dll data  -->
+<div style="display: none;">
+    <form action="/thread/" method="post" id="frmThread">
+        {% csrf_token %}
+        <input type="hidden" name="t_pid" id="t_pid" value="">
+        <input type="hidden" name="t_dump_id" id="t_dump_id" value="">
+    </form>
+
+    <form action="/handles/" method="post" id="frmHandle">
+        {% csrf_token %}
+        <input type="hidden" name="h_pid" id="h_pid" value="">
+        <input type="hidden" name="h_dump_id" id="h_dump_id" value="">
+    </form>
+
+    <form action="/dll/" method="post" id="frmDll">
+        {% csrf_token %}
+        <input type="hidden" name="d_pid" id="d_pid" value="">
+        <input type="hidden" name="d_dump_id" id="d_dump_id" value="">
+    </form>
+</div>
+{% else %}
+<div style="margin-top: -100px">
+    <img src="{% static 'img/newbaner.png' %}" style="width:100%;">
+</div>
+{% endif %} {% endblock %}

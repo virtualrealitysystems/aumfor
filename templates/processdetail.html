@@ -1,0 +1,168 @@
+{% extends 'base.html' %} {% load static %} {% block title %}
+<title>
+    Analyzed Process | AUMFOR
+</title>
+{% endblock%}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css'  %}">
+    <style type="text/css">
+        .indexModal {
+        display: none;
+        /* Hidden by default */
+        position: absolute !important;
+        /* Stay in place */
+        z-index: 5;
+        /* Sit on top */
+        /* Location of the box */
+        left: 0;
+        top: 0;
+        height: 100% !important;
+        width: 100% !important;
+        /* Full width */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Black w/ opacity */
+    }
+    </style>
+{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript" src="{% static 'js/processdetail.js'  %}"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+     var uid = {{request.session.uid}} ;
+
+    get_data_Datatable(uid);
+});
+
+
+
+</script>
+{% endblock %} 
+{% block model %}
+<div id="modelScan" class="indexModal" role="dialog">
+        <!-- Modal content -->
+        <center>
+            <div class="modal-content">
+         <!-- <span class="close">&times;</span> -->
+                <p>Please wait while generating report.</p>
+            </div>
+        </center>
+</div>
+{% endblock %}
+{% block content %}
+<script type="text/javascript">
+
+{% if request.user.is_authenticated %}
+{% else %}
+alert("Please Login")
+window.location.href = "/login/";
+{% endif %}
+
+</script>
+<div class="row">
+    <div class="card">
+        <div class="card-header" data-background-color="purple">
+            <h4> Analyzed Processes </h4>
+            <p class="category">
+                Dump : <span id="dumpProfile"></span>
+                <br> Analyzed Processes: <span id="rowsCount"> </span>
+            </p>
+        </div>
+        {% if request.session.uid %}
+        <div class="card-content table-responsive">
+            <div>
+                <form id="frm-process-report" action="" method="POST">
+                    {% csrf_token %}
+                    <div>
+                        <select class="form-control select2" id="ddlcas" onchange="showData(this.value)">
+                            <option selected="">Please select a Dump</option>
+                        </select>
+                    </div>
+                    <div style="float: right !important;">
+                        <button id="print"><img src="{% static 'img/printer.png' %}" alt="print report" style="width:25px !important; height: 25px !important;"></button>
+                    </div>
+                    <table id="Dt_process" class="display" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th>ID</th>
+                                <th data-toggle="tooltip" title="Process ID">PID</th>
+                                <th>Name</th>
+                                <th data-toggle="tooltip" title="Parent Process ID">PPID</th>
+                                <th data-toggle="tooltip" title="No of Thread">Thread Count</th>.
+                                <th>Handle Count</th>
+                                <th data-toggle="tooltip" title="Process start Time">Creation Time</th>
+                                <th data-toggle="tooltip" title="Process Termination Time">Termination Time</th>
+                                <th>Virtual Offset</th>
+                                <th>Physical Offset</th>
+                                <th>PDB</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th data-toggle="tooltip" title="Process ID">ID</th>
+                                <th>PID</th>
+                                <th>Name</th>
+                                <th>PPID</th>
+                                <th>Thread Count</th>.
+                                <th>Handle Count</th>
+                                <th>Creation Time</th>
+                                <th>Termination Time</th>
+                                <th>Virtual Offset</th>
+                                <th>Physical Offset</th>
+                                <th>PDB</th>
+                                <th></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </form>
+            </div>
+            </div>
+        {% endif %}
+        <form action="/processdetail/" method="POST" id="form" style="display: none;"> {% csrf_token %}
+            <input type="hidden" name="setPid" id="setPid" value="">
+            <input type="hidden" name="setDumpid" id="setDumpid" value="">
+            <input type="hidden" name="dumpName" id="dumpName" value="">
+        </form>
+        <!-- form for scan data  -->
+        <div style="display: none;">
+            <form action="/scan/" method="post" id="frmScan">
+                {% csrf_token %}
+                <input type="hidden" name="scanid" id="scanid" value="">
+                <input type="hidden" name="setdumpname" id="setdumpname" value="">
+            </form>
+
+            <!-- form for thred handle and dll data  -->
+
+            <form action="/thread/" method="post" id="frmThread">
+                {% csrf_token %}
+                <input type="hidden" name="t_pid" id="t_pid" value="">
+                <input type="hidden" name="t_dump_id" id="t_dump_id" value="">
+            </form>
+
+            <form action="/handles/" method="post" id="frmHandle">
+                {% csrf_token %}
+                <input type="hidden" name="h_pid" id="h_pid" value="">
+                <input type="hidden" name="h_dump_id" id="h_dump_id" value="">
+            </form>
+
+            <form action="/dll/" method="post" id="frmDll">
+                {% csrf_token %}
+                <input type="hidden" name="d_pid" id="d_pid" value="">
+                <input type="hidden" name="d_dump_id" id="d_dump_id" value="">
+            </form>
+
+        </div>
+    </div>
+</div>
+
+{% endblock%}

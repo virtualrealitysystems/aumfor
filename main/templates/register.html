@@ -1,0 +1,128 @@
+{% extends 'base.html' %} {% load static %} 
+
+{% block javascript %}
+<script src="{% static 'js/jquery.validate.min.js' %}"></script>
+<script src="{% static 'js/nprogress.js' %}"></script>
+
+<script>
+function ValidateEmail(mail) {
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(regForm.userEmail.value)) {
+        document.getElementById("msg").style.display = "none";
+        return (true)
+    }
+    document.getElementById("msg").style.display = "block";
+    document.getElementById("errorMsg").innerHTML = "Signup Failed";
+    document.getElementById("errorMsgDetail").innerHTML = "you have entered invalid Email please enter correct Email";
+    return (false)
+}
+$(document).ready(function() {
+
+    $("#register").addClass("active");
+    $("#ddmenu1").removeClass("active");
+
+
+    $("#sgn").click(function() {
+        process();
+    });
+
+    $("#userPass").keyup(function(event) {
+        if (event.which == 13 || event.keycode == 13) {
+            process();
+        }
+    });
+});
+
+
+function process() {
+    NProgress.start();
+    var name = document.getElementById("name").value;
+    var company = document.getElementById("company").value;
+    var username = document.getElementById("userName").value;
+    var pass = document.getElementById("userPass").value;
+    var uemail = document.getElementById("userEmail").value;
+
+    $.post("/api/user/register/", {
+            name: name,
+            company: company,
+            username: username,
+            email: uemail,
+            password: pass,
+        },
+        function(json) {
+            var data = jQuery.parseJSON(json);
+            console.log(data);
+            if (data["success"] == "1") {
+                alert("Registration completed successfully !");
+                NProgress.done();
+                window.location.href = "/login/";
+            } else if (data["success"] == "0") {
+                document.getElementById("msg").style.display = "block";
+                document.getElementById("errorMsg").innerHTML = "Signup Failed";
+                document.getElementById("errorMsgDetail").innerHTML = data["error"];
+            } else {
+                document.getElementById("msg").style.display = "block";
+                document.getElementById("errorMsg").innerHTML = "Signup Failed";
+                document.getElementById("errorMsgDetail").innerHTML = data["error"];
+            }
+        });
+}
+</script>
+{% endblock %} 
+
+{% block css %}
+<link href="{% static 'css/nprogress.css' %}" rel="stylesheet" />
+<style type="text/css">
+.main-panel > .content {
+    margin-top: 0px !important;
+}
+</style>
+{% endblock %} 
+
+{% block content %}
+
+<div class="row" style="z-index: 5">
+    <div class="col-md-3"></div>
+    <div class="col-md-5">
+        <div class="card">
+            <div class="card-header" data-background-color="purple">
+                <h4 class="title">Signup</h4>
+                <!-- <p class="category">Complete your profile</p> -->
+            </div>
+            <div class="card-content">
+                <div id="msg" style="display: none;">
+                    <div class="alert alert-danger">
+                        <strong id="errorMsg"></strong>
+                        <p id="errorMsgDetail"></p>
+                    </div>
+                </div>
+                <form action="" method="POST" id="regForm">{% csrf_token %}
+                    <div class="form-group label-floating">
+                        <label class="control-label">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" tabindex="1" required>
+                    </div>
+                    <div class="form-group label-floating">
+                        <label class="control-label">Company</label>
+                        <input type="text" class="form-control" id="company" name="userName" tabindex="2" required>
+                    </div>
+                    <div class="form-group label-floating">
+                        <label class="control-label">Username</label>
+                        <input type="text" class="form-control" id="userName" name="userName" tabindex="3" required>
+                    </div>
+                    <div class="form-group label-floating">
+                        <label class="control-label">Email</label>
+                        <input type="email" class="form-control" id="userEmail" name="userEmail" onchange="ValidateEmail();" tabindex="4" required>
+                    </div>
+                    <div class="form-group label-floating">
+                        <label class="control-label">Password</label>
+                        <input type="password" class="form-control" id="userPass" name="userPass" tabindex="5" required>
+                    </div>
+                    <center>
+                        <button type="button" class="btn btn-primary" id="sgn" name="sgn" tabindex="6">Signup
+                        </button>
+                    </center>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock%}

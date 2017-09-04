@@ -1,0 +1,219 @@
+{% extends 'base.html' %} {% load static %} {% block css %}
+    <style type="text/css">
+    .tim-typo {
+    padding-left: 5% !important;
+    margin-bottom: 40px !important;
+    position: relative !important;
+    }
+    .index {
+    display: inline;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 5px;
+    width: 100%;
+    }
+    p{
+    padding-left: 5px;
+    }
+    </style>
+{% endblock %} {% block title %}
+<title>
+Help | AUMFOR
+</title>
+{% endblock %} {% block content %}
+<script type="text/javascript">
+$("#help").addClass("active");
+$("#ddmenu1").removeClass("active");
+</script>
+<div class="container-fluid" style="margin-top: -70px;">
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header" data-background-color="purple">
+                <h4 class="title">We are here to Help you</h4>
+                <p class="category">AUMFOR V1.0 Support only Windows Platform </p>
+            </div>
+            <div class="card-content">
+                <div id="typography">
+                    <div class="title">
+                        <h2>AUMFOR - User Guide </h2>
+                    </div>
+                    <div class="row">
+                        <div class="tim-typo">
+                            <div>
+                                <a href="#Requirements" class="index">Requirements</a> |
+                                <a href="#Install" class="index">Install AUMFOR</a> |
+                                <!--  <a href="#uplodeddump" class="index">Uploded Dump</a> |
+                                <a href="#netcon" class="index">Network connections </a> |
+                                <a href="#reghives" class="index"> Registery Hives </a> |
+                                <a href="#scan" class="index">Scan Process</a> |
+                                <a href="#print" class="index">Get Report</a> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="tim-typo">
+                            <div>
+                                <a href="#dumpuplaod" class="index">Dump Upload</a> |
+                                <a href="#analyzeprocess" class="index">Analyzed Process</a> |
+                                <a href="#uplodeddump" class="index">Uploded Dump</a> |
+                                <a href="#netcon" class="index">Network connections </a> |
+                                <a href="#reghives" class="index"> Registery Hives </a> |
+                                <a href="#scan" class="index">Scan Process</a> |
+                                <a href="#print" class="index">Get Report</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="tim-typo">
+                            <h4 id="Requirements">
+                            1.Requirements For AUMFOR
+                            </h4>
+                            <p style="text-indent: 2.0em;">
+                                <p style="text-indent: 2.0em;"> • Linux </p>
+                                <p style="text-indent: 4.0em;"> ◦ Python 2.7 </p>
+                                <p style="text-indent: 2.0em;">
+                                    <p style="text-indent: 2.0em;"> • Windows </p>
+                                    <p style="text-indent: 4.0em;"> ◦ Python 2.7 </p>
+                                    <p style="text-indent: 4.0em;">◦ Microsoft Visual C++ Compiler for Python 2.7</p>
+                                </p>
+                                <h4 id="Install">
+                                2.How to install AUMFOR
+                                </h4>
+                                <p style="text-indent: 2.0em; font-weight: 900;>
+                                    <p style=" text-indent: 2.0em; "> • Linux </p>
+                                    <p style="text-indent: 4.0em; "> ◦ Open a terminal.
+                                        <br>
+                                        <p style="text-indent: 6.0em; ">
+                                        ◦ Change to setup's directory: </p>
+                                        <p style="text-indent: 7.0em; ">
+                                        ▪ cd “/path/to/setup” </p>
+                                        <p style="text-indent: 6.0em; ">
+                                        ◦ Run the file “setup.pyc” with sudo: </p>
+                                        <p style="text-indent: 7.0em; ">
+                                        ▪ sudo python setup.pyc install</p>
+                                        <p style="text-indent: 7.0em; "> ▪ Note that you'll be asked to enter your account password: </p>
+                                        <p style="text-indent:6.0em; ">
+                                            • To launch, open a terminal and use “aumfor” command.
+                                        </p>
+                                    </p>
+                                    <img src="{% static 'img/linux-setup.png' %} " id="linux-setup" style="margin-left: 7.0em;width: 500px;">
+                                    <p style="text-indent: 2.0em; font-weight: 900; margin-top: 50px; "> • Windows </p>
+                                    <p style="text-indent: 4.0em; "> ◦ Launch Command Propmpt as Adminstrator. You may be asked to enter administrator's password:
+                                        <br>
+                                        <p style="text-indent: 6.0em; ">
+                                        ◦ Change to setup's directory: </p>
+                                        <p style="text-indent: 7.0em; ">
+                                        ▪ cd “\path\to\setup” </p>
+                                        <p style="text-indent: 6.0em; ">
+                                        ◦ Run the file “setup.pyc” with sudo: </p>
+                                        <p style="text-indent: 7.0em; ">
+                                        ▪ sudo python setup.pyc install</p>
+                                        <p style="text-indent:6.0em; ">
+                                            • To launch, find the icon on Desktop
+                                        </p>
+                                        <p style="text-indent: 7.0em; ">
+                                            • Double click on AUMFOR Server Icon to start Server
+                                        </p>
+                                        <p style="text-indent: 7.0em; ">
+                                            • Double click on AUMFOR Icon to start using AUMFOR in Web-browser
+                                        </p>
+                                        <img src="{% static 'img/wndows-setup.PNG' %} " id="windows-setup" style="height: 400px!important; width: 500px; margin-left: 7.0em; ">
+                                    </p>
+                                    <p style="text-indent:2.0em; ">
+                                        <h4>
+                                        1. How to use AUMFOR:
+                                        </h4>
+                                        <p style="text-indent: 2.0em; ">
+                                            • Once you sucessfully installed AUMFOR
+                                            <p style="text-indent: 4.0em; font-weight: 900;"">
+                                                <p style="text-indent: 6.0em;" > • Linux </p>
+                                                <p style="text-indent: 8.0em; "> ◦ Open a terminal. </p>
+                                                <p style="text-indent: 8.0em; "> ◦ execute "aumfor" command in terminal. </p>
+                                                <p style="text-indent: 8.0em; "> ◦ start web browser </p>
+                                                <p style="text-indent: 8.0em; "> ◦ goto this url "http://localhost:8000/" </p>
+                                                <p style="text-indent: 6.0em;" > • Windows </p>
+                                                <p style="text-indent: 8.0em; "> ◦ Find Icon on Desktop </p>
+                                                <p style="text-indent: 8.0em; "> ◦ To start the server Double Click on " start server" icon </p>
+                                                <p style="text-indent: 8.0em; "> ◦ start web browser </p>
+                                                <p style="text-indent: 8.0em; "> ◦ goto this url "http://localhost:8000/" </p>
+                                                <p style="text-indent: 8.0em; "> ◦ or simply Double click on Start browser icon to lunch AUMFOR </p>
+                                            </p>
+                                            <p style="text-indent: 2.0em; "> •
+                                                Register on AUMFOR and Login with AUMFOR with given credential.
+                                            </p>
+                                            <p style="text-indent: 2.0em; font-weight: 500; text-transform: uppercase;">
+                                            Uploading a memory dump (image):</p>
+                                            <p style="text-indent: 4.0em; "> After sucessfully login, you will be able to see dashboard screen with dump upload dialog</p>
+                                            </h6>
+                                            <img src="{% static 'img/ss1.png' %} " id="dumpuplaod">
+                                            <p style="text-indent: 2.0em; "> ◦ You can only upload a zip archive containing a valid memory image.</p>
+                                            <p style="text-indent: 2.0em; "> • Exploring the results:-
+                                                <p style="text-indent: 3.0em; "> AUMFOR analyzes the following data:</p>
+                                            </p>
+                                            <p style="text-indent: 4.0em; "> ▪ Dump Information</p>
+                                            <p style="text-indent: 4.0em; " id="analyzeprocess">▪ Process </p>
+                                            <p style="text-indent: 6.0em; "> • Threads </p>
+                                            <p style="text-indent: 6.0em; ">• Handles </p>
+                                            <p style="text-indent: 6.0em; ">• DLLs </p>
+                                            
+                                            <p style=" text-indent: 4.0em; ">▪ Network Connections </p>
+                                            <p style="text-indent: 4.0em; "> ▪ Registry Hives </p>
+                                            <p style=" text-indent: 4.0em; ">• And also provides following features:  <p style=" text-indent: 5.0em; ">▪ Download a process executable. </p>  <p style=" text-indent: 5.0em; "> ▪ Scan a process for viruses using 50+ different antiviruses.</p>
+                                            <p style=" text-indent: 5.0em; ">
+                                            ▪ Generate a report (PDF file) of processes contaning process analysis results.</p> </p>
+                                            <img src="{% static 'img/ss2.png' %}" style="margin-left: 7.0em;width: 800px;margin-bottom: 10px;">
+                                            <p>
+                                                <p style="text-indent: 2.0em; ">• Click “+” button for more options such as, threads, handles and DLLs.</p>
+                                                <p style="text-indent: 2.0em; ">• Click the process name to download it.</p>
+                                                <p style="text-indent: 2.0em; ">• Click “Scan” button to scan the process for viruses.</p>
+                                                <p style="text-indent: 2.0em; ">• Check the processes and click “Print Icon” button to generate report of selected processes.</p>
+                                                <p style="text-indent: 2.0em; ">• <b>From left panel, you can view:</b></p>
+                                                <div style="text-indent: 2.0em; margin-left:30px !important; ">
+                                                    <p id="uplodeddump" style="font-weight: 600; ">◦ Uploaded dumps
+                                                        <p style="text-indent: 4.0em;">
+                                                            Uploded dumps contain infromation like : >
+                                                            > Dump ID (Id) | > Dump Name | > Status of Dump | > Uplod Date
+                                                        </p>
+                                                        <img src="{% static 'img/ss3.png' %} " style="margin-left:7.0em; margin-bottom: 10px;width:670px">
+                                                    </p>
+                                                    <p id="netcon" style="font-weight: 600; ">
+                                                        ◦ Network Connections
+                                                        <p style="text-indent: 4.0em;">
+                                                            this section contain infromation like :
+                                                            > PID | > Offset | > Status of Dump | > Uplod Date
+                                                        </p>
+                                                        <img src="{% static 'img/ss5.png' %} " style="margin-left:7.0em; margin-bottom: 10px;width:670px    ">
+                                                    </p>
+                                                    <p id="reghives" style="font-weight: 600; ">
+                                                        ◦ Registry Hives
+                                                        <p style="text-indent: 4.0em">
+                                                        A hive is a logical group of keys, subkeys, and values in the registry that has a set of supporting files containing backups of its data.</p>
+                                                        <p style="text-indent: 4.0em; word-wrap: break-word;width:100%; ">
+                                                        Each time a new user logs on to a computer, a new hive is created for that user with a separate file for the user profile. This is called the user profile hive. A user's hive contains specific registry information pertaining to the user's application settings, desktop, environment, network connections, and printers. User profile hives are located under the HKEY_USERS key.</p>
+                                                        <img src=" {% static 'img/ss6.png' %} " style="margin-left:7.0em; margin-bottom: 10px;width:670px ">
+                                                    </p>
+                                                    <p id="scan" style="font-weight: 600; ">
+                                                        ◦ Previously scanned processes.
+                                                        <img src=" {% static 'img/ss7.png' %} " style="margin-left:7.0em; margin-bottom: 10px;width:670px ">
+                                                    </p>
+                                                    <p id="print" style="font-weight: 600; ">
+                                                        ◦ Get Printed Report Everywhere.
+                                                        <img src=" {% static 'img/ss8.png' %} " style="margin-left:7.0em; margin-bottom: 10px; height: 60px;width: 60px; ">
+                                                    </p>
+                                                </div>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="card-header " data-background-color="purple " style="height:80px !important; ">
+                                        <h4 class="title ">We are here to Help you</h4>
+                                        <p class="category " style="display: inline; ">For Any kind of Help Please contact us on
+                                            <h5 style="display:inline ">info@virtualrealitysystems.net </h5> or
+                                            <h5 style="display:inline "> <a href="/contactus/ "> You can write here </a> </h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endblock %}

@@ -1,0 +1,157 @@
+{% extends 'base.html' %} {% load static %} {% block title %}
+<title>
+    Thread | AUMFOR
+</title>
+{% endblock%} 
+{% block javascript %}
+<script type="text/javascript" src="{% static 'js/thread.js'  %}"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    var thread_pid = {{pid}} ;
+    var thread_dumpid = {{dumpid}} ;
+    get_data_Dt(thread_pid,thread_dumpid);
+   
+
+});
+</script>
+{% endblock %} {% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header" data-background-color="purple">
+                <h4> Threades of Process </h4>
+                <p>
+                    Total Threads : <span id="rowsCount"> </span>
+                </p>
+                <p>
+                    Process :
+                    <a id="process" href="#" onclick="goto_process_detail()" style="text-decoration: underline;"> </a>
+                </p>
+            </div>
+            <div class="card-content table-responsive">
+                {% if request.session.uid %}
+                <div style="margin-top: 20px">
+                    <table id="example" class="display" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th data-toggle="tooltip" title="Process ID">PID</th>
+                                <th data-toggle="tooltip" title="Thread ID">TID</th>
+                                <th>Offest</th>
+                                <th>Tags</th>
+                                <th data-toggle="tooltip" title="Thread Creation time">Create time</th>
+                                <th data-toggle="tooltip" title="Thread Termnation time">Exit time</th>
+                                <th data-toggle="tooltip" title="Thread Owning By">Owning Process</th>
+                                <th data-toggle="tooltip" title="Thread Attached with">Attached Process</th>
+                                <th data-toggle="tooltip" title="State Of Thread">State</th>
+                                <th>State Reason</th>
+                                <th>Base Priority</th>
+                                <th>Priority</th>
+                                <th>Teb</th>
+                                <th>Start Address</th>
+                                <th>Owner Name</th>
+                                <th>Win32 Start Address</th>
+                                <th>Win32 Thread</th>
+                                <th>Cross Thread Flags</th>
+                                <th data-toggle="tooltip" title="CPU Regisdter">EIP</th>
+                                <th data-toggle="tooltip" title="CPU Regisdter">EAX</th>
+                                <th data-toggle="tooltip" title="CPU Regisdter">EBX</th>
+                                <th data-toggle="tooltip" title="CPU Regisdter">ECX</th>
+                                <th data-toggle="tooltip" title="CPU Regisdter">EDX</th>
+                                <th data-toggle="tooltip" title="CPU Regisdter">ESI</th>
+                                <th data-toggle="tooltip" title="CPU Regisdter">EDI</th>
+                                <th data-toggle="tooltip" title="CPU Regisdter">ESP</th>
+                                <th data-toggle="tooltip" title="CPU Regisdter">EBP</th>
+                                <th>Error Code</th>
+                                <th>Segcs</th>
+                                <th>Segss</th>
+                                <th>Segsd</th>
+                                <th>Seges</th>
+                                <th>Seggs</th>
+                                <th>Segfs</th>
+                                <th>Sflags</th>
+                                <th>Dr0</th>
+                                <th>Dr1</th>
+                                <th>Dr2</th>
+                                <th>Dr3</th>
+                                <th>Dr6</th>
+                                <th>Dr7</th>
+                                <th>Ssdt</th>
+                                <th>Entry Number</th>
+                                <th>Descriptor Service Table</th>
+                                <th>Hook Number</th>
+                                <th>Function Name</th>
+                                <th>Function Address</th>
+                                <th>Module Name</th>
+                                <th>Disassembly</th>
+                                
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>ID</th>
+                                <th data-toggle="tooltip" title="Process ID">PID</th>
+                                <th data-toggle="tooltip" title="Thread ID">TID</th>
+                                <th>Offest</th>
+                                <th>Tags</th>
+                                <th data-toggle="tooltip" title="Thread Creation time">Create time</th>
+                                <th data-toggle="tooltip" title="Thread Termnation time">Exit time</th>
+                                <th data-toggle="tooltip" title="Thread Owning By">Owning Process</th>
+                                <th data-toggle="tooltip" title="Thread Attached with">Attached Process</th>
+                                <th data-toggle="tooltip" title="State Of Thread">State</th>
+                                <th>State Reason</th>
+                                <th>Base Priority</th>
+                                <th>Priority</th>
+                                <th>Teb</th>
+                                <th>Start Address</th>
+                                <th>Owner Name</th>
+                                <th>Win32 Start Address</th>
+                                <th>Win32 Thread</th>
+                                <th>Cross Thread Flags</th>
+                                <th data-toggle="tooltip" title="CPU Regisdter">EIP</th>
+                                <th data-toggle="tooltip" title="CPU Regisdter">EAX</th>
+                                <th data-toggle="tooltip" title="CPU Regisdter">EBX</th>
+                                <th data-toggle="tooltip" title="CPU Regisdter">ECX</th>
+                                <th data-toggle="tooltip" title="CPU Regisdter">EDX</th>
+                                <th data-toggle="tooltip" title="CPU Regisdter">ESI</th>
+                                <th data-toggle="tooltip" title="CPU Regisdter">EDI</th>
+                                <th data-toggle="tooltip" title="CPU Regisdter">ESP</th>
+                                <th data-toggle="tooltip" title="CPU Regisdter">EBP</th>
+                                <th>Error Code</th>
+                                <th>Segcs</th>
+                                <th>Segss</th>
+                                <th>Segsd</th>
+                                <th>Seges</th>
+                                <th>Seggs</th>
+                                <th>Segfs</th>
+                                <th>Sflags</th>
+                                <th>Dr0</th>
+                                <th>Dr1</th>
+                                <th>Dr2</th>
+                                <th>Dr3</th>
+                                <th>Dr6</th>
+                                <th>Dr7</th>
+                                <th>Ssdt</th>
+                                <th>Entry Number</th>
+                                <th>Descriptor Service Table</th>
+                                <th>Hook Number</th>
+                                <th>Function Name</th>
+                                <th>Function Address</th>
+                                <th>Module Name</th>
+                                <th>Disassembly</th>
+                               
+                            </tr>
+                        </tfoot>
+                    </table>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <form action="/processdetail/" method="POST" id=form style="display: none;"> {% csrf_token %}
+        <input type="hidden" name="setPid" id="setPid" value="">
+        <input type="hidden" name="setDumpid" id="setDumpid" value="">
+        <input type="hidden" name="dumpName" id="dumpName" value="">
+    </form>
+</div>
+{% endblock %} 

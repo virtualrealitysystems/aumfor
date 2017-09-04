@@ -1,0 +1,78 @@
+{% load app_tags %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Scan Process Report</title>
+        <style rel="stylesheet" type="text/css">
+        @page template {
+        size: legal landscape;
+        left: 5cm;
+        right: 2cm;
+        margin: 0;
+        }
+        
+        td {
+        text-align: center;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        }
+        
+        th {
+        border-bottom: solid 1px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        }
+        </style>
+    </head>
+    <body>
+        <table width="100%" cellspacing="0" style="margin: 0; border:1px solid black; font-size: 15px;">
+            {% for data in handeldata %} {% if forloop.counter0 == 0 or forloop.counter|divisibleby:11 %}
+                <tr>
+                    <td colspan="6">
+                        <p style="text-align: center; "> <span style="font-size: 32px;font-weight: 900"> AUMFOR </span>
+                        <br>
+                        <br>
+                        <span style="font-size: 28px;">Handles Report</span>
+                    </p>
+                    <table width="100%" style="font-size: 20px;border: 1px solid black;padding: 5px;">
+                        <tr>
+                            <td style="text-align: left">
+                                <span style="font-weight: 900"> Dump : </span> : {{ dump }}
+                            </td>
+                            <td style="text-align: right">
+                                <span style="font-weight: 900"> Date: </span> {{ date }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left"> <span style="font-weight: 900"> Process </span> {{ process }} </td>
+                            <td style="text-align: right;"> <span style="font-weight: 900"> Total Handles : </span> {{ count }} </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+         <tr style="line-height: 1.5em; border-color: white;"></tr>
+        <tr style="line-height: 1.5em;">
+            <th>#</th>
+            <th>Handle</th>
+            <th>Detail</th>
+            <th>Type</th>
+            <th>Acess</th>
+            <th>Offset</th>
+        </tr>
+    {% else %} {% endif %}
+    <tr>
+        <td style="padding-left: 5px; padding-right: 5px; ">{{ forloop.counter }}</td>
+        <td>{{ data.handle }}</td>
+        {% if data.details == None %}
+            <td> - </td>
+        {% else %}
+            <td style="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.details }}</td>
+        {% endif %}
+        <td>{{ data.type }}</td>
+        <td>{{ data.access }}</td>
+        <td>{{ data.offset_v }}</td>
+    </tr>
+{% endfor %}
+</body>
+</html>

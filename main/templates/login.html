@@ -1,0 +1,107 @@
+{% extends 'base.html' %}  {% load static %} {% block javascript %}
+<!--<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>-->
+<script src="{% static 'js/nprogress.js' %}"></script>
+{% endblock %}
+
+{% block css %}
+<link href="{% static 'css/nprogress.css' %}" rel="stylesheet" />
+{% endblock%}
+
+{% block title %}
+    <title>Login | AUMFOR</title>
+{% endblock %}
+ {% block content %}
+
+<script>
+$(document).ready(function() {
+
+    $("#login").addClass("active");
+    $("#ddmenu1").removeClass("active");
+
+    
+            $('#pwd').keyup(function(event) {
+                if (event.which == 13 || event.keycode == 13) {
+                    process();
+                }
+            });
+            $("#lgn").click(function() {
+                process();
+            });
+        });
+
+        function process() {
+            NProgress.start();
+
+            var username = document.getElementById("username").value;
+            var pass = document.getElementById("pwd").value;
+            $.post("/api/user/login/", {
+                    username: username,
+                    password: pass,
+                },
+                function(json) {
+                    var data = jQuery.parseJSON(json);
+                    if (data["success"] == "1") {
+                        NProgress.done();
+                        window.location.href = "/";
+                    } else if (data["success"] == "0") {
+                        document.getElementById("msg").style.display = "block";
+                        document.getElementById("errorMsg").innerHTML = "Login Failed";
+                        document.getElementById("errorMsgDetail").innerHTML = data["error"];
+                        // window.location.href = "/login/";
+                    } else {
+
+                        document.getElementById("msg").style.display = "block";
+                        document.getElementById("errorMsg").innerHTML = "Login Failed";
+                        document.getElementById("errorMsgDetail").innerHTML = "Un Conditonal error occur please contact admin";
+                    }
+                });
+        }
+</script>
+{% if request.user.is_authenticated %}
+<script>
+$(document).ready(function() {
+    alert("user already loged in");
+    window.location.href = "/";
+});
+</script>
+{% else %}
+<!--    |- code for sapce -| -->
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-5 ">
+        <div class="card">
+            <div class="card-header" data-background-color="purple">
+                <h4 class="title">Login</h4>
+                <!-- <p class="category">Complete your profile</p> -->
+            </div>
+            <div class="card-content">
+                <form action="" method="POST" onkeyup="">
+                    {% csrf_token %}
+                    <div id="msg" style="display: none;">
+                        <div class="alert alert-danger">
+                            <strong id="errorMsg"></strong>
+                            <p id="errorMsgDetail"></p>
+                        </div>
+                    </div>
+                    <div class="form-group label-floating">
+                        <label class="control-label">Enter username</label>
+                        <input type="text" class="form-control" id="username" name="username" tabindex="1" required>
+                    </div>
+                    <div class="form-group label-floating">
+                        <label class="control-label">Enter password</label>
+                        <input type="password" class="form-control" id="pwd" name="pwd" tabindex="2" required>
+                    </div>
+                    <!--<input type="submit" class="btn btn-primary" value="Login">-->
+                    <center>
+                        <button type="button" class="btn btn-primary" id="lgn" name="lgn" tabindex="3">login</button>
+                    </center>
+                </form>
+
+                <div style="text-align: right;margin-top: 5px;padding: 5px;">
+                    <a href="/api/password_reset/">Forget Password</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %} {% endblock %}

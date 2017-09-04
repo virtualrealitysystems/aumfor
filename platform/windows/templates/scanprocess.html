@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Scan Process Report</title>
+        <style rel="stylesheet" type="text/css">
+        @page template {
+        size: legal landscape;
+        left: 5cm;
+        right: 2cm;
+        margin: 0;
+        }
+        
+        td {
+        text-align: center;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        }
+        
+        th {
+        border-bottom: solid 1px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        }
+        </style>
+        </style>
+    </head>
+    <body>
+        <table width="100%" cellspacing="0" style="margin: 0; border:1px solid black; font-size: 15px;">
+            {% for data in scandata %} {% if forloop.counter0 == 0 or forloop.counter|divisibleby:9 %}
+                <tr>
+                    <td colspan="6">
+                        
+                        <p style="text-align: center; font-size: 28px">
+                            <span style="font-size: 32px;font-weight: 900">AUMFOR</span>
+                            <br>
+                            <span style="font-size:28px; "> Scaned Process Report </span>
+                        </p>
+                        
+                        <table cellspacing="0" width="100%" style="font-size: 20px;  border: 1px solid black; padding: 5px;">
+                            <tr>
+                                <td style="text-align: left">
+                                    <span style="font-weight: 900"> Scanned Dump : </span>{{ dump }}
+                                </td>
+                                <td style="text-align: right">
+                                    <span style="font-weight: 900"> Date:
+                                    </span> {{ date }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left;">
+                                    <span style="font-weight: 900"> Process : </span> {{ processes.name }}
+                                </td>
+                                <td style="text-align: right;">
+                                    <spna style = "font-weight: 900" > Total Detected Threat : </spna> {{ total_threat }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left">
+                                    <span style="font-weight: 900"> Process Id: </span> {{ processes.pid }}
+                                </td>
+                                <td style="text-align: right;">
+                                    <span style="font-weight: 900">Scan Through : </span>{{ scanThrough }}
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            <tr style="line-height: 1.5em; border-color: white;"></tr>
+            
+            <tr>
+                <th>#</th>
+                <th>Antivirus Name</th>
+                <th>Is Threat Detected</th>
+                <th>version Of Antivirus</th>
+                <th>result</th>
+                <th>update</th>
+            </tr>
+        {% endif %} {% if data.detected == True %}
+        <tr>
+            <td style="padding-left: 5px; padding-right: 5px; background-color: yellow;">{{ forloop.counter }}</td>
+            <td style="background-color: yellow;">{{ data.anti_virus_name }}</td>
+            <td style="background-color: yellow;">{{ data.detected }}</td>
+            <td style="background-color: yellow;">{{ data.version }}</td>
+            {% if data.result == "None" or data.result == "" %}
+                <td style="background-color: yellow; width:50%;"> - </td>
+            {% else %}
+                <td style="background-color: yellow; width:50%;">{{ data.result }}</td>
+            {% endif %}
+            <td style="background-color: yellow;">{{ data.update }}</td>
+        </tr>
+    {% else %}
+        <tr>
+            <td style="padding-left: 5px; padding-right: 5px; ">{{ forloop.counter }}</td>
+            <td>{{ data.anti_virus_name }}</td>
+            <td>{{ data.detected }}</td>
+            <td>{{ data.version }}</td>
+            {% if data.result == "None" or data.result == "" %}
+                <td style="width:50%;"> - </td>
+            {% else %}
+                <td style="width:50%;">{{ data.result }}</td>
+            {% endif %}
+            <td>{{ data.update }}</td>
+        </tr>
+    {% endif %} {% endfor %}
+</body>
+</html>

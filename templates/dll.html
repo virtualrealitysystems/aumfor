@@ -1,0 +1,74 @@
+{% extends 'base.html' %} {% load static %} {% block title %}
+<title>
+    DLl | AUMFOR
+</title>
+{% endblock%} {% block css %}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css"> {% endblock %} {% block javascript %}
+<script type="text/javascript" src="{% static 'js/dll.js'  %}"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    var dll_pid = {{ pid }};
+    var dll_dumpid = {{ dumpid }}
+    get_data_Dt(dll_pid,dll_dumpid);
+});
+</script>
+{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header" data-background-color="purple">
+                <h4>DLLs of process</h4>
+                <p>
+                    Total DLL : <span id="rowsCount"> </span>
+                </p>
+                <p>
+                    Process :
+                    <a id="process" href="#" onclick="goto_process_detail()" style="text-decoration: underline;"> </a>
+                </p>
+            </div>
+            {% if request.session.uid %}
+            <div class="card-content table-responsive">
+                <div style="margin-top: 20px;">
+                    <form id="frm-print-dll" action="" method="POST">
+                        {% csrf_token %}
+                        <div style="position: relative;float: right!important;">
+                            <button type="submit"><img src="{% static 'img/printer.png' %}" alt="print report" style="width:25px !important; height: 25px !important;"></button>
+                        </div>
+                        <table id="Dt_dll" class="display" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>ID</th>
+                                    <th>Base</th>
+                                    <th>Size</th>
+                                    <th>Load Count</th>
+                                    <th>Path</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th></th>
+                                    <th>ID</th>
+                                    <th>Base</th>
+                                    <th>Size</th>
+                                    <th>Load Count</th>
+                                    <th>Path</th>
+                                    
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </form>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    <form action="/processdetail/" method="POST" id=form style="display: none;"> {% csrf_token %}
+        <input type="hidden" name="setPid" id="setPid" value="">
+        <input type="hidden" name="setDumpid" id="setDumpid" value="">
+        <input type="hidden" name="dumpName" id="dumpName" value="">
+    </form>
+</div>
+{% endblock %}

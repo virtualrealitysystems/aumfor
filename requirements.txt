@@ -1,0 +1,16 @@
+appdirs==1.4.3
+distorm3==3.3.4
+Django==1.8.17
+django-filter==1.0.1
+django-guardian==1.4.6
+djangorestframework==3.5.3
+olefile==0.44
+packaging==16.8
+pycrypto==2.6.1
+pyparsing==2.2.0
+PyPDF2==1.26.0
+reportlab==3.4.0
+requests==2.13.0
+six==1.10.0
+webencodings==0.5
+xhtml2pdf==0.0.6

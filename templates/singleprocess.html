@@ -1,0 +1,89 @@
+{% extends 'base.html' %} {% load static %} {% block title %}
+<title>
+    Process Detail | AUMFOR
+</title>
+{% endblock %} 
+
+
+{% block javascript %}
+<script type="text/javascript" src="{% static 'js/singleprocess.js'  %}"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+  var pid = {{pid}};
+  var dumpid = {{dumpid}} ;
+
+  get_data_Datatable (dumpid,pid);
+});
+</script>
+{% endblock %} 
+
+{% block content %}
+{% if pid %}
+<div>
+    <div style="padding-top:0px; margin-right: auto;">
+        <div class="card">
+            <div class="card-header" data-background-color="purple">
+                <h4>Process Details</h4>
+                <p>
+                    Dump : <span id="dumpProfile"> </span>
+                </p>
+            </div>
+            <div class="card-content table-responsive">
+                <div class="col-md-12">
+                    <table class="table" style="width: 25% !important;position: relative;float: left" ;>
+                       
+                        <tr>
+                            <td>Process Id</td>
+                        </tr>
+                        <tr>
+                            <td>Process Name</td>
+                        </tr>
+                        <tr>
+                            <td>Parent Process Id</td>
+                        </tr>
+                        <tr>
+                            <td>Total Thread</td>
+                        </tr>
+                        <tr>
+                            <td>Total Handle</td>
+                        </tr>
+                        <tr>
+                            <td>Session</td>
+                        </tr>
+                        <tr>
+                            <td>WOW64(Windows on Windows )</td>
+                        </tr>
+                        <tr>
+                            <td>Process Creation Time </td>
+                        </tr>
+                        <tr>
+                            <td>Process Termination Time</td>
+                        </tr>
+                        <tr>
+                            <td>Virtual Offset</td>
+                        </tr>
+                        <tr>
+                            <td>Offset Pair</td>
+                        </tr>
+                        <tr>
+                            <td>PDB (Program Database)</td>
+                        </tr>
+                    </table>
+                    <table class="table" id="example" style="width: 25% !important;position: relative;">
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<form id="form" name="" action="/process/" method="POST" style="display:none">
+    {% csrf_token %}
+    <input type="hidden" name="setDumpid" id="setDumpid" value="">
+</form>
+</div>
+</div>
+{% endif %} {% endblock %}

@@ -1,0 +1,77 @@
+{% load app_tags %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Scan Process Report</title>
+        <style rel="stylesheet" type="text/css">
+        @page template {
+        size: legal landscape;
+        left: 5cm;
+        right: 2cm;
+        margin: 0;
+        }
+        
+        td {
+        text-align: center;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        }
+        
+        th {
+        border-bottom: solid 1px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        }
+        </style>
+    </head>
+    <body>
+        <table width="100%" cellspacing="0" style="margin: 0; border:1px solid black; font-size: 15px;">
+            {% for data in uploaddata %}
+                {% if forloop.counter == 1 or forloop.counter|divisibleby:11 %}
+                    <tr>
+                        <td colspan="5">
+
+                            <!-- <script type="text/javascript">print();</script> -->
+                            <p style="text-align: center;">
+                                <span style="font-weight: 900;font-size: 32px">AUMFOR</span>
+                                <br>
+                                <span style="font-size: 28px">Uploded Dumps Report</span>
+                            </p>
+                            
+                            <table cellspacing="0" width="100%" style="font-size: 20px; margin-bottom: 5px; border:1px solid black;">
+                                <tr>
+                                    <td style="text-align: left">
+                                        <span style="font-weight: 900">
+                                            Total Uploded Dumps :
+                                        </span> {{ count }}
+                                    </td>
+                                    <td style="text-align: right">
+                                        <span style="font-weight: 900">Date:</span> {{ date }}
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                  <tr style="border-color:white;line-height: 1.5em;"></tr>  
+                    <tr>
+                        <th>#</th>
+                        <th>Dump Name</th>
+                        <th>Dump Status</tH>
+                        <th>Dump Platform</th>
+                        <th>Upload Date</th>
+                    </tr>
+                {% endif %}
+                <tr>
+                    <td style="padding-left: 5px; padding-right: 5px; ">{{ forloop.counter }}</td>
+                    <td>
+                        {{ data.dump_location|split }}
+                    </td>
+                    <td>{{ data.status }}</td>
+                    <td>{{ data.platform }}</td>
+                    <td style="width: 25%">{{ data.uploaded_on }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>

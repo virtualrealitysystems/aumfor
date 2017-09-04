@@ -1,0 +1,55 @@
+.modalBlock {
+        display: none;
+        /* Hidden by default */
+        position: absolute !important;
+        /* Stay in place */
+        z-index: 10;
+        /* Sit on top */
+        /*padding-top: 100px;*/
+        /* Location of the box */
+        left: 0;
+        top: 0;
+        height: 100% !important;
+        width: 100% !important;
+        /* Full width */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Black w/ opacity */
+    }
+.modal-content{
+    z-index: 5;
+    /*background-color: #fefefe;*/
+    margin: 15% auto;  
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%;  
+}
+    ul.breadcrumb {
+        padding: 10px 16px;
+        list-style: none;
+        background-color: #eee;
+        font-size: 17px;
+    }
+    
+    ul.breadcrumb li {
+        display: inline;
+    }
+    
+    ul.breadcrumb li+li:before {
+        padding: 8px;
+        color: black;
+        content: "/\00a0";
+    }
+    
+    ul.breadcrumb li a {
+        color: #0275d8;
+        text-decoration: none;
+    }
+    
+    ul.breadcrumb li a:hover {
+        color: #01447e;
+        text-decoration: underline;
+    }

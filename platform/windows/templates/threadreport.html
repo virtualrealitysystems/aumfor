@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Report</title>
+    <style rel="stylesheet" type="text/css">
+    @page template {
+        size: legal landscape;
+        left: 5cm;
+        right: 2cm;
+        margin: 0;
+        width: 100%;
+    }
+    
+    page[size="A4"][layout="landscape"] {
+        width: 29.7cm;
+        height: 21cm;
+    }
+    
+    td {
+        text-align: center;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    
+    th {
+        border-bottom: solid 1px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    </style>
+</head>
+
+<body>
+    <table width="100%" cellspacing="0" style="margin: 0; border: solid 2px; font-size: 15px;">
+        <tr>
+            <td colspan="51">
+                <b>
+                   <p style="text-align: center; font-size: 35px"> AUMFOR
+                   </p>
+                </b>
+                <table width="100%" style="font-size: 25px; margin-bottom: 10px">
+                    <tr>
+                        <td style="text-align: left">
+                            <h4>Report for {{ dump }}</h4>
+                        </td>
+                        <td style="text-align: right">
+                            <h4>Date: {{ date }}</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left"> Thread For {{ process }} </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left"> Number Of Threads :{{ count }} </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        {% for data in threaddata %} 
+        {% if forloop.counter0 == 0 or forloop.counter|divisibleby:12 %}
+        <tr>
+            <th>#</th>
+            
+            <th>PID</th>
+            <th>TID</th>
+            <th>Offest</th>
+            <th>Tags</th>
+            <th>Create time</th>
+            <th>Exit time</th>
+            <th>Owning Process</th>
+            <th>Attached Process</th>
+            <th>State</th>
+            <th>State Reason</th>
+            <th>Base Priority</th>
+            <th>Priority</th>
+            <th>Teb</th>
+            <th>Start Address</th>
+            <th>Owner Name</th>
+            <th>Win32 Start Address</th>
+            <th>Win32 Thread</th>
+            <th>Cross Thread Flags</th>
+            <th>EIP</th>
+            <th>EAX</th>
+            <th>EBX</th>
+            <th>ECX</th>
+            <th>EDX</th>
+            <th>ESI</th>
+            <th>EDI</th>
+            <th>ESP</th>
+            <th>EBP</th>
+            <th>Error Code</th>
+            <th>Segcs</th>
+            <th>Segss</th>
+            <th>Segsd</th>
+            <th>Seges</th>
+            <th>Seggs</th>
+            <th>Segfs</th>
+            <th>Sflags</th>
+            <th>Dr0</th>
+            <th>Dr1</th>
+            <th>Dr2</th>
+            <th>Dr3</th>
+            <th>Dr6</th>
+            <th>Dr7</th>
+            <th>Ssdt</th>
+            <th>Entry Number</th>
+            <th>Descriptor Service Table</th>
+            <th>Hook Number</th>
+            <th>Function Name</th>
+            <th>Function Address</th>
+            <th>Module Name</th>
+            <!-- <th>Disassembly</th> -->
+        </tr>
+        {% endif %}
+        <tr>
+            <td style="padding-left: 5px; padding-right: 5px; ">{{ forloop.counter }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.pid }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.tid }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.offset }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.tags }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.create_time }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.exit_time }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.owning_process }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.attached_process }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.state }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.state_reason }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.base_priority }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.priority }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.teb }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.start_address }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.owner_name }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.win32_start_address }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.win32_thread }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.cross_thread_flags }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.eip }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.eax }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.ebx }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.ecx }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.edx }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.esi }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.edi }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.esp }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.ebp }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.errcode }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.segcs }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.segss }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.segsd }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.seges }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.seggs }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.segfs }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.eflags }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.dr0 }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.dr1 }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.dr2 }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.dr3 }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.dr4 }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.dr5 }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.dr6 }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.dr7 }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.ssdt }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.entry_number }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.descriptor_service_table }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.hook_number }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.function_name }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.function_address }}</td>
+            <tdstyle="width:100%;text-align: center;display:inline-block;overflow-wrap: break-word;word-wrap: break-word;">{{ data.module_name }}</td>
+            <!-- <td>{{ data.disassembly }}</td> -->
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>

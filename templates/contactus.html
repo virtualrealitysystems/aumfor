@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+
+{% load static %} {% block title %}
+<title>
+    Contact us| AUMFOR
+</title>
+{% endblock%} {% block css %}
+<style type="text/css">
+.col-md-8 {
+    margin-left: 150px !important;
+}
+.main-panel > .content {
+    margin-top: 0px !important;
+}
+ul.breadcrumb{
+    display: none;
+}
+</style>
+{% endblock %} 
+
+{% block content %}
+    <script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script>
+  <script type="text/javascript">
+//<![CDATA[
+        bkLib.onDomLoaded(function(){ 
+            nicEditors.allTextAreas();
+        });
+  //]]>
+  </script>
+<script type="text/javascript">
+$(document).ready(function() {
+    
+    $("#contact").addClass("active");
+    $("#ddmenu1").removeClass("active");
+
+    $("#contactus").submit(function(event) {
+
+        document.getElementById("subject").value = $("select").find(":selected").text();
+    });
+
+});
+
+function ValidateEmail(mail) {
+    if (/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i.test(contactus.email.value)) {
+        document.getElementById("msg").style.display = "none";
+        return (true)
+    }
+    document.getElementById("msg").style.display = "block";
+    // document.getElementById("errorMsg").innerHTML = "Signup Failed";
+    document.getElementById("errorMsgDetail").innerHTML = "you have entered invalid Email please enter correct Email";
+    return (false)
+}
+
+function checkfile(e) {
+    var file_list = e.target.files;
+
+    for (var i = 0, file; file = file_list[i]; i++) {
+        var sFileName = file.name;
+        var sFileExtension = sFileName.split('.')[sFileName.split('.').length - 1].toLowerCase();
+        var iFileSize = file.size;
+        // console.log(iFileSize)
+        var iConvert = (file.size / 5242880).toFixed(2);
+
+
+        if (!(sFileExtension === "jpeg" || sFileExtension === "png" || sFileExtension === "gif" || sFileExtension === "jpg") || iFileSize > 5242880) {
+            txt = "File type : " + sFileExtension + "\n\n";
+            txt += "Size: " + iConvert + " MB \n\n";
+            txt += "Please make sure your file is in png/gif/jpeg/jpg format and less than 5 MB.\n\n";
+            alert(txt);
+        }
+    }
+}
+
+{% if msg %}
+alert("{{ msg }}"); 
+window.location.href = '/contactus/';
+{% endif %}
+</script>
+<div class="col-md-8">
+    <div class="card">
+        <div class="card-header" data-background-color="purple">
+            <h4 class="title">Contact us</h4>
+        </div>
+        <div class="card-content">
+       <div id="msg" style="display: none;">
+        <div class="alert alert-danger">
+            <strong id="errorMsg"></strong>
+            <p id="errorMsgDetail"></p>
+        </div>
+        </div>
+
+            <form method="POST" action="/email/" id="contactus" enctype="multipart/form-data">{% csrf_token %}
+               
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group label-floating is-empty">
+                            <label class="control-label">Fist Name</label>
+                            <input class="form-control" type="text" id="firstname" name="firstname" tabindex="1" required>
+                            <span class="material-input"></span></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group label-floating is-empty">
+                            <label class="control-label">Last Name</label>
+                            <input class="form-control" type="text" id="lastname" name="lastname" tabindex="2" required>
+                            <span class="material-input"></span></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group label-floating is-empty">
+                            <label class="control-label">Email</label>
+                            <input class="form-control" type="email" id="email" name="email" onchange="ValidateEmail();" tabindex="3" required>
+                            <span class="material-input"></span></div>
+                    </div>
+                     <div class="col-md-6">
+                        <div class="form-group label-floating is-empty">
+                            <select class="selectpicker show-tick">
+                                <option>Bug</option>
+                                <option selected>Suggestion</option>
+                                <option>Features</option>
+                                <option>Discuusion</option>
+                            </select>
+                            <span class="material-input"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <!-- <label>About Me</label> -->
+                            <div class="form-group label-floating is-empty">
+                                <!-- <label class="control-label"> Wright Your Thought Here</label> -->
+                                <textarea class="form-control" id="msg" required spellcheck name="msg" tabindex="4" placeholder="">Suggestions </textarea>
+                                <span class="material-input"></span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label> Share screenshoot</label>
+                        <input type="file" id="pic" name="pic" multiple accept="image/*" onchange='checkfile(event)'>
+                        <span class="material-input"></span>
+                    </div>
+                </div>
+                <input type="hidden" id="subject" name="subject">
+                <center>
+                    <input type="submit" class="btn btn-primary" value="Send us">
+                </center>
+                <div class="clearfix"></div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
