@@ -118,7 +118,7 @@ REST_FRAMEWORK = {
 }
 
 EMAIL_HOST = ''  # 'smtp.gmail.com'
-EMAIL_PORT =  # set the port in int
+EMAIL_PORT = None# set the port in int
 EMAIL_HOST_USER = ''  # 'EMAIL ADDRESS'  # Value should email address
 EMAIL_HOST_PASSWORD = ''  # 'PASSWORD'   # Password for email address
 EMAIL_USE_TLS = False

@@ -1,19 +1,21 @@
 -----------------------------------
-AUMFOR (AUTOMATIC MEMORY FORENSIC)
+##AUMFOR (AUTOMATIC MEMORY FORENSIC)
 -----------------------------------
 
-About AUMFOR
+##About AUMFOR
 
 AUMFOR is Automated Memory Forensic is GUI based Tool for helping Forensic Investigator by performing all complex and tedious work automatically, it also analyzes and gives final accurate reports about possibilities of use of malware in committing a crime.
 
 AUMFOR is build with Django (Python webframework) and it uses Volatility to perform Memory Forensic. AUMFOR uses VirusTotal for performing Virus Scan feature.
 
-Django :  https://www.djangoproject.com/
-Volatility : http://www.volatilityfoundation.org/
-VirusTotal : https://www.virustotal.com/
+[Django :](https://www.djangoproject.com)
+
+[Volatility :](http://www.volatilityfoundation.org)
+
+[VirusTotal :](https://www.virustotal.com)
 
 -----------------------------------
-Prerequisites
+##Prerequisites
 
     #For WINDOWS
 
@@ -42,22 +44,31 @@ Prerequisites
     > $sudo apt-get install python-dev
 
 -----------------------------------
-Setup and Run
+##Setup and Run
 
-    1. Create and activate Virtual Environment in your desired location
-    2. Download source code from Github
-    3. Install requirements from requirements.txt file
-    4. Migrate database 
-    5. To enable Virus Scan Feature set VirusTotal API key in settings.py
-    6. Open Terminal as Administrator User
-    7. Start Django Server and Run AUMFOR as Administrator user
+    1. Create Virtual Environment in your desired location
+        > virtualenv aumfor
+    2. Activate Virtual Environment
+    3. Download source code from Github
+        > git clone https://github.com/virtualrealitysystems/aumfor.git
+    4. Install requirements from requirements.txt file
+        > pip install -r requirements.txt
+    5. Migrate database 
+        > python manage.py migrate
+    6. To enable Virus Scan Feature set VirusTotal API key in settings.py
+    7. Open Terminal as Administrator User
+    8. Start Django Server and Run AUMFOR as Administrator user
+        > python manage.py runserver
+    9. Open your browser and type http://localhost:8000 to access AUMFOR
 
 Happy Experiment !
 
 -----------------------------------
+##Author
+'''
 AUMFOR is powered by Virtual Reality Systems
 For premium support please contact us at
 Email : info@virtualrealitysystems.net
 Skype : virtualrealitysystems
-Website : http://www.virtualrealitysystems.net/
+Website : http://www.virtualrealitysystems.net '''
 -----------------------------------
