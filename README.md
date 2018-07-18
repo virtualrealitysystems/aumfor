@@ -64,11 +64,10 @@ AUMFOR is build with Django (Python webframework) and it uses Volatility to perf
 Happy Experiment !
 
 -----------------------------------
-##Author
-'''
+
+
 AUMFOR is powered by Virtual Reality Systems
-For premium support please contact us at
 Email : info@virtualrealitysystems.net
 Skype : virtualrealitysystems
-Website : http://www.virtualrealitysystems.net '''
+Website : http://www.virtualrealitysystems.net 
 -----------------------------------
